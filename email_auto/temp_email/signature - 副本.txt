@@ -1,0 +1,119 @@
+<hr style="width: 210px; height: 1px;" align="left" color="#b5c4df" size="1">
+
+<style class="fox_global_style">
+    div.fox_html_content {
+        line-height: 1.5;
+    }
+    /* 一些默认样式 */
+    blockquote {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0.5em;
+    }
+    ol,
+    ul {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        list-style-position: inside;
+    }
+    p {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+</style>
+<div style="margin: 10px; font-family: verdana; font-size: 10pt;">
+    <p class="MsoNormal" style="margin: 0px 0cm; font-size: 10.5pt; text-align: justify; font-family: 等线;">
+        <span lang="EN-US" style="font-size: 11pt; font-family: Arial, sans-serif;">
+            <a href="https://reobrix.com/">
+                <img
+                    src="https://cdn.shopify.com/s/files/1/0632/2939/5192/files/small_logo.png"
+                    border="0"
+                    width="40"
+                    height="40"
+                    class="image_zoomin"
+                    style="cursor: url('../../Common/FoxUI/Images/New/Icon/zoomin.cur'), pointer; max-width: 100%; height: auto !important;"
+                />
+            </a>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <font face="Arial">
+            <span lang="EN-US" style="font-size: 16px;"><b>Bill Zou</b></span><span lang="EN-US" style="font-size: 10.5pt;"><o:p></o:p></span>
+        </font>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;"><span style="font-family: Arial; font-size: 12px;">Marketing Director</span></p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US">
+            <font face="Arial">Email: bill@reobrix.com<o:p></o:p></font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US">
+            <font face="Arial">Tel: +86 177 4863 3055<o:p></o:p></font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US">
+            <font face="Arial">
+                Web: www.reobrix.com<span style="font-size: 10.5pt;"><o:p></o:p></span>
+            </font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 10.5pt; text-align: justify;">
+        <span lang="EN-US">
+            <o:p><font face="Arial">&nbsp;</font></o:p>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 10.5pt; text-align: justify;">
+        <font color="#424242" face="Arial">
+            <span lang="EN-US">
+                <b><u>Headquarters</u></b>
+            </span>
+            <span lang="EN-US">
+                <b><u>:</u><o:p></o:p></b>
+            </span>
+        </font>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US" style="font-size: 12px;">
+            <font face="Arial"><font color="#424242">Shantou Juhang Toy Technology Co., Ltd.</font><o:p></o:p></font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US" style="font-size: 12px;">
+            <font face="Arial">9th. Floor, Longchang Building, Chenghai, Shantou, China<o:p></o:p></font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US">
+            <font face="Arial">
+                <span style="font-size: 12px;">Beiwan Industrial Park, Chenghai, Shantou, China</span><span style="font-size: 10.5pt;"><o:p></o:p></span>
+            </font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 10.5pt; text-align: justify;">
+        <span lang="EN-US">
+            <o:p><font face="Arial">&nbsp;</font></o:p>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 10.5pt; text-align: justify;">
+        <font color="#414141" face="Arial">
+            <span lang="EN-US">
+                <b><u>Branch Office</u></b>
+            </span>
+            <span lang="EN-US">
+                <b><u>:</u><o:p></o:p></b>
+            </span>
+        </font>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US" style="font-size: 12px;">
+            <font face="Arial">
+                <font color="#414141">Shenzhen Zhenbrick Toy Technology Co., Ltd.</font><b><o:p></o:p></b>
+            </font>
+        </span>
+    </p>
+    <p class="MsoNormal" style="margin: 0px 0cm; font-family: 'Trebuchet MS'; font-size: 14px; text-align: justify;">
+        <span lang="EN-US"><font face="Arial" style="font-size: 12px;">3A06, Jinshang Commercial Building, Longhua, Shenzhen, China</font></span>
+    </p>
+</div>

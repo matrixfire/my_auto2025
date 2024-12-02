@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Static and Media Files Configuration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #2c3e50;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        .note {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 10px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <pre><code class="has-line-data" data-line-start="2" data-line-end="74" class="language-python"><span class="hljs-comment"># Import necessary modules</span>
+        <span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+        <span class="hljs-keyword">from</span> django.utils.text <span class="hljs-keyword">import</span> slugify
+        <span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> reverse
+        <span class="hljs-keyword">from</span> django.utils <span class="hljs-keyword">import</span> timezone
+        <span class="hljs-keyword">from</span> django.conf <span class="hljs-keyword">import</span> settings
+        
+        <span class="hljs-comment"># Define the model class</span>
+        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Some_Model</span><span class="hljs-params">(models.Model)</span>:</span>
+            <span class="hljs-comment"># Define choices for the status field</span>
+            <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Status</span><span class="hljs-params">(models.TextChoices)</span>:</span>
+                DRAFT = <span class="hljs-string">'DF'</span>, <span class="hljs-string">'Draft'</span>
+                PUBLISHED = <span class="hljs-string">'PB'</span>, <span class="hljs-string">'Published'</span>
+        
+            <span class="hljs-comment"># Model fields</span>
+            name = models.CharField(max_length=<span class="hljs-number">200</span>)  <span class="hljs-comment"># The name of the model instance</span>
+            status = models.CharField(
+                max_length=<span class="hljs-number">2</span>, 
+                choices=Status.choices,  <span class="hljs-comment"># Use the choices defined in Status</span>
+                default=Status.DRAFT     <span class="hljs-comment"># Default value for the status field</span>
+            )
+            slug = models.SlugField(max_length=<span class="hljs-number">200</span>, unique=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># Unique URL-friendly slug</span>
+            description = models.TextField(blank=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># Optional description</span>
+        
+            category = models.ForeignKey(
+                <span class="hljs-string">'Category'</span>,          <span class="hljs-comment"># Foreign key to a Category model</span>
+                related_name=<span class="hljs-string">'products'</span>,  <span class="hljs-comment"># Related name for reverse lookup</span>
+                on_delete=models.CASCADE  <span class="hljs-comment"># Delete related objects when this object is deleted</span>
+            )
+            author = models.ForeignKey(
+                settings.AUTH_USER_MODEL,  <span class="hljs-comment"># Foreign key to the User model specified in settings</span>
+                on_delete=models.CASCADE,  <span class="hljs-comment"># Delete related objects when this object is deleted</span>
+                related_name=<span class="hljs-string">'blog_posts'</span>   <span class="hljs-comment"># Related name for reverse lookup</span>
+            )
+        
+            image = models.ImageField(
+                upload_to=<span class="hljs-string">'products/%Y/%m/%d'</span>,  <span class="hljs-comment"># Directory to upload images to</span>
+                blank=<span class="hljs-keyword">True</span>                      <span class="hljs-comment"># Allow image to be optional</span>
+            )
+            price = models.DecimalField(
+                max_digits=<span class="hljs-number">10</span>, 
+                decimal_places=<span class="hljs-number">2</span>  <span class="hljs-comment"># Decimal field to store the price with 2 decimal places</span>
+            )
+            available = models.BooleanField(default=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># Whether the product is available</span>
+            publish = models.DateTimeField(default=timezone.now)  <span class="hljs-comment"># Date and time the product is published</span>
+            created = models.DateTimeField(auto_now_add=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># Date and time the product was created</span>
+            updated = models.DateTimeField(auto_now=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># Date and time the product was last updated</span>
+        
+            <span class="hljs-comment"># Meta options for the model</span>
+            <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+                ordering = [<span class="hljs-string">'name'</span>]  <span class="hljs-comment"># Default ordering of model instances by name</span>
+                indexes = [
+                    models.Index(fields=[<span class="hljs-string">'name'</span>]),  <span class="hljs-comment"># Create an index on the name field for faster lookups</span>
+                ]
+                verbose_name = <span class="hljs-string">'product'</span>  <span class="hljs-comment"># Singular name for the model</span>
+                verbose_name_plural = <span class="hljs-string">'products'</span>  <span class="hljs-comment"># Plural name for the model</span>
+        
+            <span class="hljs-comment"># Method to get the absolute URL for the model instance</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_absolute_url</span><span class="hljs-params">(self)</span>:</span>
+                <span class="hljs-keyword">return</span> reverse(<span class="hljs-string">'shop:product_list_by_category'</span>, args=[self.slug])
+        
+            <span class="hljs-comment"># Method to save the model instance</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save</span><span class="hljs-params">(self, *args, **kwargs)</span>:</span>
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.slug:
+                    <span class="hljs-comment"># Automatically generate a slug from the name field if it is not set</span>
+                    self.slug = slugify(self.name)
+                super().save(*args, **kwargs)  <span class="hljs-comment"># Call the superclass method to perform the save</span>
+        
+            <span class="hljs-comment"># String representation of the model instance</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+                <span class="hljs-keyword">return</span> self.name  <span class="hljs-comment"># Return the name field as the string representation</span>
+        </code></pre>
+
+</body>
+
+</html>

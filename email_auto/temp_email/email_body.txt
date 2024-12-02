@@ -1,0 +1,19 @@
+<html>
+<head>
+<style>
+  .signature {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+  }
+  .icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+{{ email_body | replace('\n', '<br>\n') }}
+{{email_signature}}
+</body>
+</html>

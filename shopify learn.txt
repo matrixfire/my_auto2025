@@ -1,0 +1,319 @@
+### Part 1: Getting Started with Shopify
+第1部分：开始使用Shopify
+
+1: Introducing the Ecommerce Essentials
+介绍电子商务基础
+
+Explaining Ecommerce
+解释电子商务
+Introducing Shopify
+介绍Shopify
+Planning for Ecommerce Success
+计划电子商务成功
+Getting Creative: Setting Up Your Shopify Store
+发挥创意：设置您的Shopify商店
+Making Friends with Your Customers
+与您的客户建立友谊
+Taking Care of Business: Managing Stock Levels and Delivering Orders
+处理业务：管理库存水平和交付订单
+Growing Your Business through Marketing
+通过营销发展您的业务
+Going Live!
+上线！
+
+2: Finding Your Way Around Shopify
+在Shopify中找到您的方式
+
+Choosing a Shopify Plan
+选择一个Shopify计划
+Shopify’s Support Services
+Shopify的支持服务
+Deciding on Your Domain Name
+决定您的域名
+Where Am I? Signing Up with Shopify
+我在哪里？注册Shopify
+Navigating the Shopify Admin Panel
+导航Shopify管理员面板
+Using Shopify to Sell In-store and Digital Products
+使用Shopify销售店内和数字产品
+
+3: Sourcing Products and Identifying Sales Channels
+采购产品和识别销售渠道
+
+Sourcing the Right Products to Sell
+采购正确的销售产品
+Introducing Online Sales Channels
+介绍在线销售渠道
+All about Dropshipping
+关于全面代发
+Selling on Online Marketplaces
+在在线市场上销售
+
+### Part 2: Preparing Your Store for Launch
+第2部分：准备您的商店启动
+
+4: Designing Your Shopify Store
+设计您的Shopify商店
+
+Coding, Web Developers and Shopify
+编码，网页开发者和Shopify
+Finding Your Way: Website Architecture
+找到您的方式：网站架构
+
+Team with the Theme: Exploring Shopify Themes
+与主题团队合作：探索Shopify主题
+
+Designing Your Shop Window: The Homepage
+设计您的店面窗口：首页
+
+Adding Menus and Pages
+添加菜单和页面
+
+5: Filling Your Virtual Shelves: Creating Products and Collections
+填充您的虚拟货架：创建产品和集合
+
+Nuts and Bolts: Adding Products to Develop Your Collections
+基本要素：添加产品以发展您的集合
+
+Merchandising Your Collections
+商品化您的集合
+
+Activating Products in Your Store
+激活商店中的产品
+
+6: Setting Up Shipping and Receiving Payments
+设置运输和接收支付
+
+One Size Does Not Fit All: Exploring Shipping Options
+一刀切不适用：探索运输选项
+
+Getting Started with Shipping in Shopify
+在Shopify中开始运输
+
+Tax Time: Setting Up Tax Rates
+税务时间：设置税率
+
+The Fun Part: Getting Paid
+有趣的部分：获得支付
+
+Fraud prevention
+预防欺诈
+
+### Part 3: Curating the Customer Experience: The Customer Is Always Right
+第3部分：策划客户体验：客户永远是对的
+
+7: What’s the Difference? Customer Service and Customer Experience
+什么是不同？客户服务和客户体验
+
+Customer Service 101: Communicating with Customers
+客户服务101：与客户沟通
+
+Using Customer Service Metrics
+使用客户服务指标
+
+Maximizing Customer Experience
+最大化客户体验
+
+Checking Customer Satisfaction
+检查客户满意度
+
+8: Reviews, Customer Loyalty and User-Generated Content
+评论，客户忠诚度和用户生成内容
+
+Why Reviews Matter
+为什么评论很重要
+
+Why Loyalty Matters
+为什么忠诚度很重要
+
+Utilizing User-Generated Content
+利用用户生成内容
+
+Customer Reports: Loyal and At-risk Customers
+客户报告：忠诚和风险客户
+
+9: Understanding the User Experience
+了解用户体验
+
+Understanding the Basics of a Good User Experience
+了解良好用户体验的基础
+
+Improving Your User Experience
+改善您的用户体验
+
+Implementing AB Testing
+实施AB测试
+
+10: Getting Personal: Personalizing Your Website
+变得个性化：个性化您的网站
+
+Creating a Personalized Shopping Experience
+创建个性化购物体验
+
+Tailoring Your Store to Suit Your Customers
+量身定制您的商店以适应您的客户
+
+The Gift of Giving: Creating and Fulfilling Gift Cards
+给予的礼物：创建和实现礼品卡
+
+Giving Little Unexpected Extras
+提供小小的意外额外礼物
+
+Part 4: Taking Stock of the Situation: Inventory, Logistics and Orders
+第4部分：审视情况：库存、物流和订单
+
+11: Stocked Up: Buying, Receiving and Managing Inventory
+库存充足：购买、接收和管理库存
+
+Defining Inventory Management
+定义库存管理
+
+Starting from Scratch: Your First Purchase Order
+从零开始：您的第一个采购订单
+
+Storing Your Inventory
+存储您的库存
+
+Putting Your Stock to Work: Listing Inventory Across Sales Channels
+让您的库存发挥作用：在销售渠道中列出库存
+
+Catch Me If You Can! Tracking Stock Movement
+抓住我如果你能！追踪库存移动
+
+Using Inventory Reports
+使用库存报告
+
+12: So, You’ve Received an Order — Now What?
+所以，您已收到一个订单 — 现在怎么办？
+
+Receiving and Confirming Orders
+接收和确认订单
+
+The Three Stages of an Online Order
+在线订单的三个阶段
+
+Creating Draft Orders for Customers
+为客户创建草稿订单
+
+Managing Orders
+管理订单
+
+Checking an Order for Fraud
+检查订单是否存在欺诈
+
+13: From Here to There: Fulfilling Your Orders
+从这里到那里：完成您的订单
+
+Fulfill Your Own Orders
+完成您自己的订单
+
+Using a Fulfillment Service
+使用履行服务
+
+Printing Shipping Labels and Customs Forms
+打印运输标签和海关表格
+
+Using Local Pickup
+使用本地取货
+
+Part 5: Attracting Attention: Sales and Marketing
+第5部分：吸引注意力：销售和营销
+
+14: Pricing, Discounts and Promotions: Creating Eye-Catching Offers
+定价、折扣和促销：创建吸引眼球的优惠
+
+Pricing Your Products
+定价您的产品
+
+Preparing to Run Sales and Promotions
+准备进行销售和促销
+
+Setting Sale Prices for Products: The ‘Compare At’ Price
+为产品设置销售价格：‘比较价格’
+
+Delivering Discounts
+提供折扣
+
+Discounting Shortcuts
+折扣捷径
+
+15: Getting Discovered: Finding New Customers
+被发现：寻找新客户
+
+Introducing Digital Marketing
+介绍数字营销
+
+Building a Marketing Plan
+构建营销计划
+
+Implementing Marketing Campaigns and Automations
+实施营销活动和自动化
+
+16: Advertising and Promoting Your Online Store
+广告和推广您的在线商店
+
+Getting Started with Facebook Marketing
+开始使用Facebook营销
+
+Trying Search Engine Marketing with Google Ads
+尝试使用Google广告进行搜索引擎营销
+
+Making the Most of Search Engine Optimization
+最大化搜索引擎优化
+
+Experimenting with Email Marketing
+尝试电子邮件营销
+
+17: Getting Social: Using Social Media to Grow Your Business
+变得社交化：使用社交媒体发展您的业务
+
+All About Socials: The Rise and Rise of Social Media in Ecommerce
+全关于社交：电子商务中社交媒体的兴起和增长
+
+Meeting the Social Media Marketing Channels
+会见社交媒体营销渠道
+
+Linking Your Social Media Profiles
+链接您的社交媒体简介
+
+Tapping In to Influencer Marketing
+深入了解影响者营销
+
+Part 6: The Part of Tens
+第6部分：十部分
+
+18: Ten Helpful Apps for Your Shopify Store
+十个对您的Shopify商店有用的应用
+
+Gorgias: Customer Service
+Gorgias：客户服务
+
+Okendo: Product Reviews
+Okendo：产品评论
+
+Klaviyo: Email
+
+-------------------------------------------------------------------------------
+I'm gonna do whatever the fuck I can to save the job, but when I lose it, I don't need to regret anything, cuz I already did my best.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What I learned:
+1, Selling on Online Marketplaces
+
+
+Wholesale trade is the practice of a supply or manufacturing business selling products to a retail business, which then sells them to the end customer.
+批发贸易是供应或制造业务向零售业务销售产品的做法，然后零售业务再将产品卖给最终客户。
+
+People often refer to wholesalers as an intermediary or ‘middleman’.
+人们通常将批发商称为中间商或‘中间人’。
+
+
+hybrid model: This mix of buying and selling their own stock and providing a space for others to sell too is what we call a hybrid model. It's like combining the best of both worlds — having your own products and also offering a platform for others to sell theirs.
+
+
+
+2, Typically, web developers fall into three categories:
+
+Front end developers: Front end developers are responsible for the look and feel of the website. When you see a design change on the homepage of your favorite site, or a new layout for the product pages, they have been updated by a front end developer. This is not to say the developer has designed those features; usually, this is done by a UX (user experience) designer, or a web designer. Shopify gives you all the tools you need to adjust your design by yourself, so you won’t need a developer at this point — which is one of the reasons that Shopify is such a great platform for those new to ecommerce.
+Back end developers: A front end developer needs to be supported by a back end developer. Back end developers keep the website’s engine running smoothly. While not dealing with the fun stuff that the front end developers do, the back end developer plays a very important role. A back end developer spends their time writing code and dealing with the server side of the website, including updating a store’s prices, inventory and products. Fortunately, with Shopify, you have pre-built themes that include just about any feature you can think of, from wishlists to inventory management and general content management, so you can build your site without needing a back end developer.
+Full stack developers: These are the big cheese in the hamburger! The full stack developer is comfortable managing both the front end and back end parts of a website. A full stack developer isn’t technically better or more skilful than either a front end or back end developer — they are simply proficient in both areas.

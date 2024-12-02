@@ -1,0 +1,13 @@
+Don't fear
+
+
+1，open the folder for vidoes which haven't uploaded yet.
+2, open the youtube.com and navigate to my channel's uploading vidoe page
+3, open two terminal, with python and paste two functions,
+4, select from the video folder a vidoe path ,e.g. "F:\BaiduNetdiskDownload\66007渔屋.mp4"
+
+5，past the prompts to the ai bot function
+6, 
+
+
+

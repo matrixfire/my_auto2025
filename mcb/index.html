@@ -1,0 +1,645 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Clipboard Manager</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                table { width: 100%; border-collapse: collapse; }
+                th, td { border: 1px solid #ddd; padding: 8px; }
+                th { background-color: #f2f2f2; }
+                input[type="text"] { width: 90%; padding: 6px; }
+                button { padding: 10px 15px; margin: 5px; }
+            </style>
+        </head>
+        <body>
+            <h1>Clipboard Manager</h1>
+            <form method="POST" action="/update">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+            <tr>
+                <td><input type="text" name="key_pip" value="pip" readonly></td>
+                <td><input type="text" name="value_pip" value=""-i https://pypi.tuna.tsinghua.edu.cn/simple""></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_address" value="address" readonly></td>
+                <td><input type="text" name="value_address" value="深圳龙华区锦尚商业楼四楼3A06邹先生17727962501"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_reobrix" value="reobrix" readonly></td>
+                <td><input type="text" name="value_reobrix" value="Our company which in china, with brand name Reobrix, is making and selling building blocks like Lego's (but you can not use LEGO word as company or product intro too often as Lego is other brand name, which would violate laws ) below is a BRANDINTRODUCTION
+:
+REOBRIX BUILDING BLOCK MOLDS ARE SOLDIN MORE THAN 150 COUNTRIES AND REGIONSAROUND THE WORLD. THE CHANNELS COVERE-COMMERCE, SHOPPING MALLS, SUPERMAR-KETS AND SPECIALTY STORES, ETC., AND ARECURRENTLY SOLD AT MORE THAN 2000 SALESTERMINALS AROUND THE WORLD.WE FOCUSON THE CONSTRUCTION AND DEVELOPMENTOF BRAND. CULTURE, AND CREATIVITY. SINCETHE ESTABLISHMENT OF THE COMPANY. WEHAVE REGISTERED A NUMBER OF DESIGN ANDUTILITY MODEL MAJORS. WE HAVE ALSOSIGNED PRODUCT AUTHORIZATIONS WITHMANY WELL-KNOWN BRANDS, AND THEPRODUCTS WE HAVE LAUNCHED HAVE ALSOBEEN FAVORED BY MANY CUSTOMERS.RECOGNIZED AND ESTABLSHED LONG-TERMCOOPERATION."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_email" value="email" readonly></td>
+                <td><input type="text" name="value_email" value="bill@reobrix.com"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_t1" value="t1" readonly></td>
+                <td><input type="text" name="value_t1" value="Ideas "></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_easy" value="easy" readonly></td>
+                <td><input type="text" name="value_easy" value="Explain {{}} in simple and easy terms that any beginner can understand."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_easy-ch" value="easy-ch" readonly></td>
+                <td><input type="text" name="value_easy-ch" value="用任何初学者都能理解的简单易懂的术语解释[插入主题]。"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_cn" value="cn" readonly></td>
+                <td><input type="text" name="value_cn" value="pls translate below english text into chinese, keep each line or sentence of english above and translation below, for example, if i want u tranalste :"how are you? I'm Bill. I am learning.”, finally give me the complete translation for the text in the bottom, like: then you should give me output like this:
+分句翻译:
+1, how are you?
+你好吗？
+2, I'm Bill
+我是Bill
+3, I am learning.
+我正在学习
+
+整体翻译：“你好吗？我是Bill。我正在学习”
+
+{{}}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_t2" value="t2" readonly></td>
+                <td><input type="text" name="value_t2" value="Similar "></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_sum" value="sum" readonly></td>
+                <td><input type="text" name="value_sum" value="Make a comprehensive summary from the below matrial so that it help me better grasp and learn it, you should try give me what's important from it, as in below:
+
+{{}}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_analogy" value="analogy" readonly></td>
+                <td><input type="text" name="value_analogy" value="Can you create an analogy for"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_find_emails" value="find_emails" readonly></td>
+                <td><input type="text" name="value_find_emails" value="import re
+import pyperclip
+from ordered_set import OrderedSet
+
+
+emailRegex = re.compile(r'''(
+    [a-zA-Z0-9._%+-]+   # username
+    @ 
+    [a-zA-Z0-9.-]+  # domain name
+    (\.[a-zA-Z]{2,3}) 
+    )''', re.VERBOSE)
+
+
+def find_emails(txt=''):
+    if not txt:
+        txt = pyperclip.paste()
+    # lt = [i[0] for i in emailRegex.findall(txt)]
+    no_dup = OrderedSet()
+    for i in emailRegex.findall(txt):
+        emailAdd = i[0].lower()
+        if emailAdd not in no_dup:
+            print(emailAdd)
+            no_dup.add(emailAdd)
+    result_list = list(no_dup)
+    print(f'\n{len(result_list)} emails copied to clipboard.\n')
+    pyperclip.copy('\n'.join(result_list))
+    # print(f'\nTotal: {len(no_dup)}')
+    return result_list"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_url" value="url" readonly></td>
+                <td><input type="text" name="value_url" value="https://reobrix.com/"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_formally" value="formally" readonly></td>
+                <td><input type="text" name="value_formally" value="explain formally and intuitively what is  {{}} and what it can be used  but using one sentence "></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_subfolders" value="subfolders" readonly></td>
+                <td><input type="text" name="value_subfolders" value="import os
+f = lambda input_path: [folder for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))]
+f2 = lambda input_path: [folder for folder in os.listdir(input_path)]
+g = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))]
+g2 = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path)]"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_rewrite" value="rewrite" readonly></td>
+                <td><input type="text" name="value_rewrite" value="Rewrite the text below and make it easy for a beginner to understand:
+{{}}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_pip2" value="pip2" readonly></td>
+                <td><input type="text" name="value_pip2" value="pip install {{}} -i https://pypi.tuna.tsinghua.edu.cn/simple"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_eng" value="eng" readonly></td>
+                <td><input type="text" name="value_eng" value="I'm learning english ,help me optimize below english, with the same meaning but more authentic:
+{{}}
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_bat" value="bat" readonly></td>
+                <td><input type="text" name="value_bat" value="@echo off
+
+start "" "C:\Program Files\Tencent\WeChat\WeChat.exe"
+
+start "" "C:\Program Files\Tencent\WeChat\WeChat.exe"
+
+exit"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_post" value="post" readonly></td>
+                <td><input type="text" name="value_post" value="Come up with 5 social media posts for Facebook that highlights our {{}} model and including the approprate hash tags for building blocks(better think of five or more hashtags, and be sure to include #reobrix), and including our website link https://reobrix.com/."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_missing" value="missing" readonly></td>
+                <td><input type="text" name="value_missing" value="Hello,
+
+We're sorry to hear about the missing parts from your Reobrix building blocks. 
+
+To sort this out quickly, please get in touch with the seller or the store where you bought the blocks. They're set up to assist with any problems you might have after buying.
+
+If they can't help you out, please let us know. We're here to make sure you're taken care of.
+
+Thanks for reaching out,
+
+Best regards
+Reobrix Team"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_edit" value="edit" readonly></td>
+                <td><input type="text" name="value_edit" value="Edit and proofread for grammar, spelling, and clarity for below:
+{{}}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_28" value="28" readonly></td>
+                <td><input type="text" name="value_28" value="I want to learn about {{}}. Identify and share the most important 20% of learnings from this topic that will help me understand 80% of it."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_ocr" value="ocr" readonly></td>
+                <td><input type="text" name="value_ocr" value="import pytesseract
+from PIL import Image
+
+def extract_text_from_image(image_path):
+    # Open the image file
+    img = Image.open(image_path)
+    gray_img = img.convert('L')
+    # Specify the path to the Tesseract executable
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    # Use pytesseract to extract text
+    text = pytesseract.image_to_string(gray_img)
+    return text
+
+ocr = extract_text_from_image
+
+def main(folder_path):
+    import os
+    import pyperclip as p
+    all_text = ""
+    g2 = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path)] # dirs and files path names
+    def remove_empty_lines(text):
+        lines = text.split('\n')
+        non_empty_lines = filter(lambda line: line.strip(), lines)
+        return '\n'.join(non_empty_lines)
+    file_path_lt = g2(folder_path)
+    for file_path in file_path_lt:
+        all_text += (ocr(file_path) + '\n')
+        print(f"{file_path} extracted.")
+    result = remove_empty_lines(all_text)
+    p.copy(result)
+    print(result)"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_post2" value="post2" readonly></td>
+                <td><input type="text" name="value_post2" value="As is stated, Our company is a building block manufacturer in China with brand name "Reobrix" and we produces lego-like bricks, below excerpts is its model description, 
+I wanna you complete three tasks:
+TASK 1:
+you first make a sumamry first, 
+TASK2: 
+and then Based on the description, make some posts examples that I can use to promote it with the detail on my Social Networks (like FB, twitter, ins, youtube, tiktok, youtube etc)  including the approprate hash tags for building blocks(and I think keywords like construction toys and interlocking brick system would be good, and better think of five or more hashtags, and be sure to include #reobrix ,), and make sure you must including our website link https://reobrix.com/ in the post(dont forget that!)
+TASK3:
+think of two titles for this product, including Reobrix brand name in the begining, like "Reobrix Supercar ..."...
+
+
+{{}}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_tools" value="tools" readonly></td>
+                <td><input type="text" name="value_tools" value="import os
+f = lambda input_path: [folder for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))] # dirs names
+f2 = lambda input_path: [folder for folder in os.listdir(input_path)] # dirs and files names
+
+g = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))] # dirs paths
+g2 = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path)] # dirs and files path names"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_rename" value="rename" readonly></td>
+                <td><input type="text" name="value_rename" value="import os
+
+def rename_path(old_path, new_name, keep_filename_suffix=False):
+    try:
+        # Check if new_name is a path or just a name
+        if os.path.isabs(new_name):
+            new_path = new_name
+        else:
+            # Split the path into directory and base name
+            directory, base_name = os.path.split(old_path)
+            
+            if keep_filename_suffix:
+                # Keep the old filename's suffix
+                file_name, file_ext = os.path.splitext(base_name)
+                new_base_name = f"{new_name}{file_ext}"
+            else:
+                new_base_name = new_name
+            
+            new_path = os.path.join(directory, new_base_name)
+        
+        # Check if the new path already exists
+        if os.path.exists(new_path):
+            # If it does, find a new name by adding a counter in parentheses
+            counter = 1
+            while True:
+                new_base_name, new_ext = os.path.splitext(new_base_name)
+                new_base_name = f"{new_base_name}({counter}){new_ext}"
+                new_path = os.path.join(directory, new_base_name)
+                if not os.path.exists(new_path):
+                    break
+                counter += 1
+        
+        # Rename the path
+        os.rename(old_path, new_path)
+        
+        # Print the success message
+        print(f"Success in renaming {os.path.basename(old_path)} to {os.path.basename(new_path)}")
+        print(f"Old path: {old_path}")
+        print(f"New path: {new_path}")
+    except FileNotFoundError:
+        print("Error: File or directory not found")
+    except Exception as e:
+        print(f"Error: {e}")"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_web" value="web" readonly></td>
+                <td><input type="text" name="value_web" value="import os
+
+def get_unique_filename(path):
+    """
+    Generates a unique filename by appending an incrementing number
+    if the file already exists.
+    """
+    base, ext = os.path.splitext(path)
+    counter = 1
+    new_path = path
+    
+    while os.path.exists(new_path):
+        new_path = f"{base}-{counter}{ext}"
+        counter += 1
+    
+    return new_path
+
+def create_web_files(folder_path):
+    # Create the folder if it doesn't exist
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    
+    # Define the initial paths for the files
+    index_path = os.path.join(folder_path, 'index.html')
+    style_path = os.path.join(folder_path, 'style.css')
+    script_path = os.path.join(folder_path, 'script.js')
+    
+    # Get unique paths if files already exist
+    index_path = get_unique_filename(index_path)
+    style_path = get_unique_filename(style_path)
+    script_path = get_unique_filename(script_path)
+    
+    # Create index.html with basic structure
+    index_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>'''
+    
+    with open(index_path, 'w') as file:
+        file.write(index_content)
+    
+    # Create empty style.css
+    with open(style_path, 'w') as file:
+        file.write('')
+
+    # Create empty script.js
+    with open(script_path, 'w') as file:
+        file.write('')
+
+# Alias the function for easier use
+web = create_web_files
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_easy2" value="easy2" readonly></td>
+                <td><input type="text" name="value_easy2" value="give me an analogy to help understand {{}}, and then give a professional definiton for it."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_re" value="re" readonly></td>
+                <td><input type="text" name="value_re" value="import re
+
+ret = re.search(r"\d+", "A12")
+ret = re.findall(r"\d+", "A1, B2")
+ret = re.sub(r"\d+", "2", "A1")
+ret = re.sub(r"\d+", lambda x: str(int(x.group()) + 1),"A1")
+ret = re.split(r":| ", "A1:B2 C3")"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_reply" value="reply" readonly></td>
+                <td><input type="text" name="value_reply" value="Note below in between """ """ (triple quotes) are the email or chat history I or we have with some sort of client, 
+
+
+"""
+{{}}
+"""
+
+Since English isn't my native, I want you to write message or email back to the recipient, expressing that:
+
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_reobrix2" value="reobrix2" readonly></td>
+                <td><input type="text" name="value_reobrix2" value="We are a company in China with brand name Reobrix, which is a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. Our innovative building sets are designed to inspire creativity and provide a unique building experience for enthusiasts of all ages. With a diverse range of product collections, including Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, Power Engineering Series, and many more, we cater to a wide array of interests and hobbies.
+
+At Reobrix, we are dedicated to the construction and development of brand culture, creativity, and high standards of quality. Our products are sold in over 150 countries through various channels such as e-commerce, shopping malls, supermarkets, and specialty stores. We take pride in our detailed and realistic models, each crafted with precision and care, ensuring an engaging and rewarding assembly experience.
+
+Our latest offerings include highly detailed models like the Reobrix Cathedral of Notre Dame, UCS-Style Star Shuttle, and the Scorpion Submachine Gun, among others. These models not only provide an immersive building experience but also serve as magnificent display pieces.
+
+We frequently collaborate with influencers by providing free samples for them to create and share videos and pictures, helping to showcase our products to a broader audience. Our commitment to quality and innovation has earned us a loyal customer base and long-term partnerships with well-known brands.
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_moc" value="moc" readonly></td>
+                <td><input type="text" name="value_moc" value="My name is Bill and We are a company in China with brand name Reobrix, which is a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. Our innovative building sets are designed to inspire creativity and provide a unique building experience for enthusiasts of all ages. With a diverse range of product collections, including Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, Power Engineering Series, and many more, we cater to a wide array of interests and hobbies.
+
+At Reobrix, we are dedicated to the construction and development of brand culture, creativity, and high standards of quality. Our products are sold in over 150 countries through various channels such as e-commerce, shopping malls, supermarkets, and specialty stores. We take pride in our detailed and realistic models, each crafted with precision and care, ensuring an engaging and rewarding assembly experience.
+
+Our latest offerings include highly detailed models like the Reobrix Cathedral of Notre Dame, UCS-Style Star Shuttle, and the Scorpion Submachine Gun, among others. These models not only provide an immersive building experience but also serve as magnificent display pieces.
+
+We frequently collaborate with influencers by providing free samples for them to create and share videos and pictures, helping to showcase our products to a broader audience. Our commitment to quality and innovation has earned us a loyal customer base and long-term partnerships with well-known brands.
+
+My Email Address: bill@reobrix.com , and company's Website: https://reobrix.com
+
+Above is our brief introduction, and now we are looking for MOC designers, and I happened to check a post as in below (within the triple quotes """ """), and based on the post details write a concise mesage to him or her, expressing the idea of our willing to cooperate with MOC designers like him or her bying paying them, be sure to include our website url link(just showing the literal words for our site and don't user hyperlink) so they can check.
+
+
+"""
+{{}}
+"""
+You better make the message shorter than 100 words, as I think too long text will make them impatient to read."></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_moc2" value="moc2" readonly></td>
+                <td><input type="text" name="value_moc2" value="We are about to plan to cooperate with some MOC designers, and now I'm look for some designers' work and report to my manager,
+below in """ """(triple quotes) are the contents writen by some MOC designers, make me make a sumary, in below format, using Chinese, note in parenthis is what I want you to fill :
+MOC设计项目：(What the works is about)
+作者：(Its author)
+来源：(What platform or link does this work come from )
+作品简介：(About a brief intro based on the contents)
+
+For example:
+
+MOC设计项目：海盗单桅船:乌鸦号
+作者：Sebeus
+来源：https://www.eurobricks.com/forum/index.php?/forums/topic/198614-moc-pirate-sloop-the-raven/
+作品简介：这是一个海盗船的设计，作者大概花了三年。
+
+"""{{}}"""
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_django" value="django" readonly></td>
+                <td><input type="text" name="value_django" value="import os
+
+def setup_django_app(app_path):
+    # Extract app name from the path
+    app_name = os.path.basename(app_path)
+
+
+    urls_path = os.path.join(app_path, 'urls.py')
+    forms_path = os.path.join(app_path, 'forms.py')
+    templates_path = os.path.join(app_path, 'templates', app_name)
+    static_path = os.path.join(app_path, 'static', app_name)
+
+    if not os.path.exists(urls_path):
+        with open(urls_path, 'w') as urls_file:
+            urls_file.write(f"""
+from django.urls import path
+from . import views
+
+app_name = '{app_name}'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    # Add other paths here
+]
+""")
+ 
+    if not os.path.exists(forms_path):
+        open(forms_path, 'a').close()
+
+    #  Create templates and static directories if they don't exist
+    for directory in (templates_path, static_path):
+        os.makedirs(directory, exist_ok=True)
+
+dj = setup_django_app
+"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_dj_note" value="dj_note" readonly></td>
+                <td><input type="text" name="value_dj_note" value="from django.conf import settings
+from django.conf.urls.static import static
+from django.shortcuts import get_object_or_404
+from datetime import date
+from django.contrib.auth.models import User
+from blog.models import Post
+from .models import Post
+from django.db.models import Q
+from .forms import EmailPostForm
+from django.shortcuts import render, get_object_or_404
+from .models import Post
+
+
+# view usages
+def post_share(request, post_id):
+    # Retrieve post by id
+    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    
+    if request.method == 'POST':
+        # Form was submitted
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Form fields passed validation
+            cd = form.cleaned_data
+            # ... send email
+    else:
+        form = EmailPostForm()
+    
+    return render(request, 'blog/post/share.html', {'post': post, 'form': form})
+
+
+
+
+# admin
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['title', 'slug', 'author', 'publish', 'status']
+    list_filter = ['status', 'created', 'publish', 'author']
+    search_fields = ['title', 'body']
+    prepopulated_fields = {'slug': ('title',)}
+    raw_id_fields = ['author']
+    date_hierarchy = 'publish'
+    ordering = ['status', 'publish']
+    show_facets = admin.ShowFacets.ALWAYS
+
+# static files
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# About ORM
+# 0. Retrieve the user with username 'admin'
+user = User.objects.get(username='admin')
+post = Post.objects.get(id=1) # Retrieve the Post object with id 1
+
+# 1. Creating objects
+# Create a Post object with title 'A' and author 'user'
+post = Post(title='A', author=user) 
+post.save()  # Save the Post object to the database
+
+# Create a Post object with title 'B' and save it directly
+Post.objects.create(title='B')
+
+# Get or create a User object with username 'user2'
+user, created = User.objects.get_or_create(username='user2')
+
+# 2. Updating objects
+# Update the title of the post
+post.title = 'New title'
+post.save()  # Save the changes to the database
+
+# 3. Retrieving objects
+
+Post.objects.all()[:5] # Retrieve the first 5 Post objects
+Post.objects.order_by('?')[0] # Retrieve a random Post object
+Post.objects.order_by('author', '-title') # Retrieve all Post objects ordered by author (ascending) and title (descending)
+
+# 4. Deleting objects
+post.delete() # delete it
+
+# 5. Advanced Queries
+# Check if any Post objects exist that were published after January 1, 2024,
+# have an author with username 'admin', and do not have a title starting with 'Why'
+
+
+Post.objects.filter(publish__date__gt=date(2024, 1, 1)) \
+    .filter(author__username='admin') \
+    .exclude(title__startswith='Why') \
+    .exists()
+
+
+# Create Q objects for titles starting with 'who' or 'why'
+starts_who = Q(title__istartswith='who')
+starts_why = Q(title__istartswith='why')
+
+# Count the number of Post objects with titles starting with 'who' or 'why'
+Post.objects.filter(starts_who | starts_why).count()
+
+
+
+
+<form action="{% url "blog:post_comment" post.id %}" method="post">
+  from blog.models import Post
+  {% csrf_token %}
+  <p><input type="submit" value="Click!"></p>
+</form>
+
+
+
+# {{ post.body|truncatewords:30|linebreaks }}  
+# {{ post.tags.all|join:", " }}
+
+{% for tag in post.tags.all %}
+    <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+        {{ tag.name }}
+        {{ tag.date_added|date:'M d, Y H:i' }}
+    </a>{% if not forloop.last %}, {% endif %}
+{% empty %}
+    <p>There are no tags yet.</p>
+{% endfor %}"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_simple" value="simple" readonly></td>
+                <td><input type="text" name="value_simple" value="what is "{{}}" in simple terms"></td>
+            </tr>
+            
+            <tr>
+                <td><input type="text" name="key_test" value="test" readonly></td>
+                <td><input type="text" name="value_test" value="fucking test if it works fine!!!
+***Bill Super Clipboard-just test fuck u***"></td>
+            </tr>
+            
+                    </tbody>
+                </table>
+                <button type="submit">Submit Changes</button>
+            </form>
+        </body>
+        </html>
+        

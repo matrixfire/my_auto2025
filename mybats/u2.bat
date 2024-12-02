@@ -1,0 +1,1 @@
+@py.exe C:\Users\34950\Desktop\full_time_work\myauto\easy_jobs.py %*  

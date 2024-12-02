@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./assets/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./dist/swiper-gl.min.css"> <!-- Adjusted path -->
+  <link rel="stylesheet" href="./main.css">
+  <style>
+    .swiper {
+      width: 68vw; /* Set the width to 88% of the viewport width */
+      max-width: 100%; /* Prevent exceeding 100% of the screen width */
+      height: auto; /* Allow height to be auto based on aspect ratio */
+      aspect-ratio: 16 / 9; /* Set the aspect ratio, you can adjust the numbers */
+      margin: 0 auto; /* Center the swiper */
+    }
+
+    /* Other existing styles... */
+  </style>
+  <title>Shaders Slider</title>
+</head>
+
+<body>
+  <!-- Shaders slider -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      
+      <div class="swiper-slide">
+        <img class="swiper-gl-image" src="./assets/images/01.jpg" alt="">
+        <div class="swiper-slide-content">
+          <div class="swiper-slide-title">Spider-Man: No Way Home</div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <img class="swiper-gl-image" src="./assets/images/02.jpg" alt="">
+        <div class="swiper-slide-content">
+          <div class="swiper-slide-title">Free Guy</div>
+        </div>
+      </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./dist/swiper-gl.min.js"></script> <!-- Adjusted path -->
+  <script src="./main.js"></script>
+</body>
+
+</html>

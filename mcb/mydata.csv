@@ -1,0 +1,2277 @@
+key,value
+pip,"""-i https://pypi.tuna.tsinghua.edu.cn/simple"""
+address,深圳龙华区锦尚商业楼四楼3A06邹先生17727962501
+reobrix,"Here is our intro:
+
+We are a company in China with brand name Reobrix, which is a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. Our innovative building sets are designed to inspire creativity and provide a unique building experience for enthusiasts of all ages. With a diverse range of product collections, including Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, Power Engineering Series, and many more, we cater to a wide array of interests and hobbies.
+
+At Reobrix, we are dedicated to the construction and development of brand culture, creativity, and high standards of quality. Our products are sold in over 150 countries through various channels such as e-commerce, shopping malls, supermarkets, and specialty stores. We take pride in our detailed and realistic models, each crafted with precision and care, ensuring an engaging and rewarding assembly experience.
+
+Our latest offerings include highly detailed models like the Reobrix Cathedral of Notre Dame, UCS-Style Star Shuttle, and the Scorpion Submachine Gun, among others. These models not only provide an immersive building experience but also serve as magnificent display pieces.
+
+Our website is https://reobrix.com/; 
+
+We have plans to collaborate with influencers by providing free samples for them to create and share videos and pictures, helping to showcase our products to a broader audience. Our commitment to quality and innovation has earned us a loyal customer base and long-term partnerships with well-known brands. And we are also looking for moc designers to contribute theirs works for us, and we can pay and buy from them.
+
+"
+email,bill@reobrix.com
+t1,"my_env2\Scripts\activate
+cd reobrix2
+python manage.py runserver"
+easy,Explain {{}} in simple and easy terms that any beginner can understand.
+easy-ch,用任何初学者都能理解的简单易懂的术语解释[插入主题]。
+cn,"pls translate below english text into chinese, keep each line or sentence of english above and translation below, for example, if i want u tranalste :""how are you? I'm Bill. I am learning.”, finally give me the complete translation for the text in the bottom, like: then you should give me output like this:
+分句翻译:
+1, how are you?
+你好吗？
+2, I'm Bill
+我是Bill
+3, I am learning.
+我正在学习
+
+整体翻译：“你好吗？我是Bill。我正在学习”
+
+{{}}"
+t2,"Create an anlogy to help understand below concept:
+
+```
+{{}}
+```"
+sum,"Make a comprehensive summary from the below matrial so that it help me better grasp and learn it, you should try give me what's important from it, as in below:
+
+{{}}"
+analogy,Can you create an analogy for
+find_emails,"import re
+import pyperclip
+from ordered_set import OrderedSet
+
+
+emailRegex = re.compile(r'''(
+    [a-zA-Z0-9._%+-]+   # username
+    @ 
+    [a-zA-Z0-9.-]+  # domain name
+    (\.[a-zA-Z]{2,3}) 
+    )''', re.VERBOSE)
+
+
+def find_emails(txt=''):
+    if not txt:
+        txt = pyperclip.paste()
+    # lt = [i[0] for i in emailRegex.findall(txt)]
+    no_dup = OrderedSet()
+    for i in emailRegex.findall(txt):
+        emailAdd = i[0].lower()
+        if emailAdd not in no_dup:
+            print(emailAdd)
+            no_dup.add(emailAdd)
+    result_list = list(no_dup)
+    print(f'\n{len(result_list)} emails copied to clipboard.\n')
+    pyperclip.copy('\n'.join(result_list))
+    # print(f'\nTotal: {len(no_dup)}')
+    return result_list"
+url,https://reobrix.com/
+formally,explain formally and intuitively what is  {{}} and what it can be used  but using one sentence 
+subfolders,"import os
+f = lambda input_path: [folder for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))]
+f2 = lambda input_path: [folder for folder in os.listdir(input_path)]
+g = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))]
+g2 = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path)]"
+rewrite,"Rewrite the text below and make it easy for a beginner to understand:
+{{}}"
+pip2,pip install {{}} -i https://pypi.tuna.tsinghua.edu.cn/simple
+eng,"I'm learning english ,help me optimize below english, with the same meaning but more authentic:
+{{}}
+"
+bat,"@echo off
+
+start """" ""C:\Program Files\Tencent\WeChat\WeChat.exe""
+
+start """" ""C:\Program Files\Tencent\WeChat\WeChat.exe""
+
+exit"
+post,"Come up with 5 social media posts for Facebook that highlights our {{}} model and including the approprate hash tags for building blocks(better think of five or more hashtags, and be sure to include #reobrix), and including our website link https://reobrix.com/."
+missing,"Hello,
+
+We're sorry to hear about the missing parts from your Reobrix building blocks. 
+
+To sort this out quickly, please get in touch with the seller or the store where you bought the blocks. They're set up to assist with any problems you might have after buying.
+
+If they can't help you out, please let us know. We're here to make sure you're taken care of.
+
+Thanks for reaching out,
+
+Best regards
+Reobrix Team"
+edit,"Edit and proofread for grammar, spelling, and clarity for below:
+{{}}"
+28,I want to learn about {{}}. Identify and share the most important 20% of learnings from this topic that will help me understand 80% of it.
+ocr,"import os
+import pyperclip as p
+from PIL import Image
+import pytesseract
+
+def extract_text_from_image(image_path):
+    # Open the image file
+    img = Image.open(image_path)
+    gray_img = img.convert('L')
+    # Specify the path to the Tesseract executable
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+    # Use pytesseract to extract text
+    text = pytesseract.image_to_string(gray_img)
+    return text
+
+ocr = extract_text_from_image
+
+def main(folder_path):
+    def remove_empty_lines(text):
+        lines = text.split('\n')
+        non_empty_lines = filter(lambda line: line.strip(), lines)
+        return '\n'.join(non_empty_lines)
+
+    all_text = """"
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+            if file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif')):
+                try:
+                    all_text += (ocr(file_path) + '\n')
+                    print(f""{file_path} extracted."")
+                except PermissionError as e:
+                    print(f""Permission error for file {file_path}: {e}"")
+                except Exception as e:
+                    print(f""Error processing file {file_path}: {e}"")
+
+    result = remove_empty_lines(all_text)
+    p.copy(result)
+    print(result)"
+post2,"As is stated, Our company is a building block manufacturer in China with brand name ""Reobrix"" and we produces lego-like bricks, below excerpts is its model description, 
+I wanna you complete three tasks:
+TASK 1:
+you first make a sumamry first, 
+TASK2: 
+and then Based on the description, make some posts examples that I can use to promote it with the detail on my Social Networks (like FB, twitter, ins, youtube, tiktok, youtube etc)  including the approprate hash tags for building blocks(and I think keywords like construction toys and interlocking brick system would be good, and better think of five or more hashtags, and be sure to include #reobrix ,), and make sure you must including our website link https://reobrix.com/ in the post(dont forget that!)
+TASK3:
+think of two titles for this product, including Reobrix brand name in the begining, like ""Reobrix Supercar ...""...
+
+
+{{}}"
+tools,"n = lambda input_path: [folder for folder in os.listdir(input_path)] # dirs and files names
+n = lambda input_path: [file for file in os.listdir(input_path) if os.path.isfile(os.path.join(input_path, file))] # files names
+n = lambda input_path: [folder for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))] # dirs names
+
+p = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path)] # dirs and files paths
+p = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path) if os.path.isfile(os.path.join(input_path, folder))] # files paths
+p = lambda input_path: [os.path.join(input_path, folder) for folder in os.listdir(input_path) if os.path.isdir(os.path.join(input_path, folder))] # dirs paths
+
+import pyperclip as p; pl = lambda lt: p.copy(""\n"".join(lt))
+
+
+
+###################################################################################
+from PIL import Image
+import os
+
+def concatenate_images_vertically(folder_path):
+    # Get all image file paths from the folder
+    image_files = [os.path.join(folder_path, f) for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg', 'gif', 'bmp'))]
+    
+    # Open all images and store them in a list
+    images = [Image.open(img_file) for img_file in image_files]
+    
+    # Calculate the total height and the max width of the concatenated image
+    total_height = sum(img.height for img in images)
+    max_width = max(img.width for img in images)
+    
+    # Create a new image with the calculated max width and total height
+    concatenated_image = Image.new('RGB', (max_width, total_height))
+    
+    # Paste each image into the concatenated image
+    current_y = 0
+    for img in images:
+        concatenated_image.paste(img, (0, current_y))
+        current_y += img.height
+    
+    # Define the output path
+    output_path = os.path.join(folder_path, 'concatenated_image_vertically.jpg')
+    
+    # Save the concatenated image
+    concatenated_image.save(output_path)
+    
+    return output_path
+
+cv = concatenate_images_vertically
+
+
+###################################################################################
+import webbrowser
+
+def open_links():
+    links = [
+        ""https://chat.openai.com"",
+        ""https://www.bing.com/chat"",
+        ""https://yiyan.baidu.com/""
+    ]
+    for link in links:
+        webbrowser.open(link)
+
+# Call the function to open the links
+open_links()
+
+
+###################################################################################
+from PIL import Image, ImageDraw
+
+def generate_background_image(size, color_str, output_path):
+    # Parse the color string into RGB components
+    color = tuple(int(color_str[i:i+2], 16) for i in (1, 3, 5))
+    
+    # Create a new image with the specified size and background color
+    img = Image.new('RGB', size, color)
+    
+    # Save the image to the specified output path
+    img.save(output_path)
+    
+    print(f""Generated background image with size {size} and color {color_str}. Saved to {output_path}"")
+
+# Example usage:
+if __name__ == ""__main__"":
+    size = (940, 348)  # Example size (width, height)
+    color_str = ""#EBE6E4""  # Example color string
+    output_path = r""C:\Users\Administrator\Desktop\very_temp\new_temp\background_image.png""  # Example output path
+    
+    generate_background_image(size, color_str, output_path)
+	
+	
+###################################################################################
+
+
+#! python3
+# stopwatch.py - A simple stopwatch program.
+
+import time
+
+# Display the program's instructions.
+print('Press ENTER to begin. Afterward, press ENTER to ""click"" the stopwatch.\nPress Ctrl-C to quit.')
+input()  # press Enter to begin
+print('Started.')
+startTime = time.time()  # get the first lap's start time
+lastTime = startTime
+lapNum = 1
+
+# Start tracking the lap times.
+try:
+    while True:
+        input()
+        lapTime = round(time.time() - lastTime, 2)
+        totalTime = round(time.time() - startTime, 2)
+        print(f'Lap #{lapNum}: {totalTime} ({lapTime})', end='')
+        lapNum += 1
+        lastTime = time.time()  # reset the last lap time
+except KeyboardInterrupt:
+    # Handle the Ctrl-C exception to keep its error message from displaying.
+    print('\nDone.')
+
+###################################################################################
+
+
+def cells_2_list(txt=''):
+    '''still have bugs...'''
+    import pyperclip as p
+    # Check if the text contains double quotes
+    if not txt:
+        txt = p.paste()
+    txt = txt.strip()
+    if '""' in txt:
+        # Replace new lines within quotes with whitespace
+        cleaned_txt = ''
+        in_quote = False
+        for char in txt:
+            if char == '""':
+                in_quote = not in_quote
+            if in_quote and char == '\n':
+                cleaned_txt += ' '
+            else:
+                cleaned_txt += char
+        # Remove double quotes
+        # cleaned_txt = cleaned_txt.replace('""', '')
+    else:
+        cleaned_txt = txt.strip()  # Remove leading/trailing whitespace
+    # Split text into a list based on newline separator
+    result_list = cleaned_txt.split('\n')
+    result_list = [i.strip() for i in result_list]
+    print(f'Found {len(result_list)} item(s).')
+    return result_list
+
+c2l = cells_2_list
+
+
+# import pyperclip; pyperclip.copy(""\n"".join
+
+
+
+###################################################################################
+
+import phonenumbers
+from phonenumbers import geocoder
+
+def guess_country(phone_number):
+    try:
+        parsed_number = phonenumbers.parse(phone_number)
+        country = geocoder.country_name_for_number(parsed_number, ""en"")
+        return country
+    except phonenumbers.NumberParseException:
+        return ""Invalid phone number""
+
+gc = guess_country
+
+
+
+
+
+###################################################################################
+
+
+
+
+
+
+import os
+import re
+
+def get_folder_contents(folder_path, exclude_regex=[]):
+    """"""
+    Collects subfolders and files in a folder based on exclusion criteria.
+
+    Parameters:
+    - folder_path (str): Path to the folder to collect contents of.
+    - exclude_regex (list): List of regex patterns. Folders or files matching any of these patterns will be excluded.
+
+    Returns:
+    - tuple: A tuple containing two lists: (subfolders, files)
+      subfolders (list): List of subfolder paths.
+      files (list): List of file names.
+    """"""
+    subfolders = []
+    files = []
+
+    if not os.path.isdir(folder_path):
+        print(f""Error: {folder_path} is not a valid directory."")
+        return subfolders, files
+    
+    for item in os.listdir(folder_path):
+        item_path = os.path.join(folder_path, item)
+        if os.path.isdir(item_path):
+            subfolders.append(item_path)
+        elif os.path.isfile(item_path):
+            files.append(item)
+
+    # Filter out subfolders and files based on exclude_regex
+    subfolders = [folder for folder in subfolders if not any(re.search(pattern, folder) for pattern in exclude_regex)]
+    files = [file for file in files if not any(re.search(pattern, file) for pattern in exclude_regex)]
+
+    return subfolders, files
+
+def print_folder_contents(folder_path, indent=0, print_files=True, exclude_regex=[]):
+    """"""
+    Prints subfolders and files in a folder with hierarchical indentation.
+
+    Parameters:
+    - folder_path (str): Path to the folder to print contents of.
+    - indent (int): Indentation level for subfolders and files.
+    - print_files (bool): If True, prints both folders and files. If False, prints only subfolders.
+    - exclude_regex (list): List of regex patterns. Folders or files matching any of these patterns will be excluded.
+
+    Returns:
+    - None
+    """"""
+    subfolders, files = get_folder_contents(folder_path, exclude_regex)
+
+    folder_name = os.path.basename(folder_path)
+    print(f""{' ' * indent}{folder_name}"")
+
+    if print_files:
+        for file in files:
+            print(f""{' ' * (indent + 2)}- {file}"")
+
+    for subfolder in subfolders:
+        print_folder_contents(subfolder, indent + 2, print_files, exclude_regex)
+
+
+
+
+
+# Example usage:
+folder_path = r""C:\Users\Administrator\Desktop\work2024\reobrix_site\reobrix2\shop\templates""
+exclude_regex = [r"".*\.txt"", r""ignore.*"", ]
+print_folder_contents(folder_path, print_files=True, exclude_regex=exclude_regex)
+"
+rename,"import os
+
+def rename_path(old_path, new_name, keep_filename_suffix=False):
+    try:
+        # Check if new_name is a path or just a name
+        if os.path.isabs(new_name):
+            new_path = new_name
+        else:
+            # Split the path into directory and base name
+            directory, base_name = os.path.split(old_path)
+            
+            if keep_filename_suffix:
+                # Keep the old filename's suffix
+                file_name, file_ext = os.path.splitext(base_name)
+                new_base_name = f""{new_name}{file_ext}""
+            else:
+                new_base_name = new_name
+            
+            new_path = os.path.join(directory, new_base_name)
+        
+        # Check if the new path already exists
+        if os.path.exists(new_path):
+            # If it does, find a new name by adding a counter in parentheses
+            counter = 1
+            while True:
+                new_base_name, new_ext = os.path.splitext(new_base_name)
+                new_base_name = f""{new_base_name}({counter}){new_ext}""
+                new_path = os.path.join(directory, new_base_name)
+                if not os.path.exists(new_path):
+                    break
+                counter += 1
+        
+        # Rename the path
+        os.rename(old_path, new_path)
+        
+        # Print the success message
+        print(f""Success in renaming {os.path.basename(old_path)} to {os.path.basename(new_path)}"")
+        print(f""Old path: {old_path}"")
+        print(f""New path: {new_path}"")
+    except FileNotFoundError:
+        print(""Error: File or directory not found"")
+    except Exception as e:
+        print(f""Error: {e}"")"
+web,"import os
+
+def get_unique_filename(path):
+    """"""
+    Generates a unique filename by appending an incrementing number
+    if the file already exists.
+    """"""
+    base, ext = os.path.splitext(path)
+    counter = 1
+    new_path = path
+    
+    while os.path.exists(new_path):
+        new_path = f""{base}-{counter}{ext}""
+        counter += 1
+    
+    return new_path
+
+def create_web_files(folder_path):
+    # Create the folder if it doesn't exist
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    
+    # Define the initial paths for the files
+    index_path = os.path.join(folder_path, 'index.html')
+    style_path = os.path.join(folder_path, 'style.css')
+    script_path = os.path.join(folder_path, 'script.js')
+    
+    # Get unique paths if files already exist
+    index_path = get_unique_filename(index_path)
+    style_path = get_unique_filename(style_path)
+    script_path = get_unique_filename(script_path)
+    
+    # Create index.html with basic structure
+    index_content = '''<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Document</title>
+    <link rel=""stylesheet"" href=""style.css"">
+</head>
+<body>
+    <script src=""script.js""></script>
+</body>
+</html>'''
+    
+    with open(index_path, 'w') as file:
+        file.write(index_content)
+    
+    # Create empty style.css
+    with open(style_path, 'w') as file:
+        file.write('')
+
+    # Create empty script.js
+    with open(script_path, 'w') as file:
+        file.write('')
+
+# Alias the function for easier use
+web = create_web_files
+"
+easy2,"give me an analogy to help understand {{}}, and then give a professional definiton for it."
+re,"import re
+
+ret = re.search(r""\d+"", ""A12"")
+ret = re.findall(r""\d+"", ""A1, B2"")
+ret = re.sub(r""\d+"", ""2"", ""A1"")
+ret = re.sub(r""\d+"", lambda x: str(int(x.group()) + 1),""A1"")
+ret = re.split(r"":| "", ""A1:B2 C3"")"
+reply,"Note below in between """""" """""" (triple quotes) are the email or chat history I or we have with some sort of client, 
+
+
+""""""
+{{}}
+""""""
+
+Since English isn't my native, I want you to write message or email back to the recipient, expressing that:
+
+"
+reobrix2,"We are a company in China with brand name Reobrix, which is a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. Our innovative building sets are designed to inspire creativity and provide a unique building experience for enthusiasts of all ages. With a diverse range of product collections, including Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, Power Engineering Series, and many more, we cater to a wide array of interests and hobbies.
+
+At Reobrix, we are dedicated to the construction and development of brand culture, creativity, and high standards of quality. Our products are sold in over 150 countries through various channels such as e-commerce, shopping malls, supermarkets, and specialty stores. We take pride in our detailed and realistic models, each crafted with precision and care, ensuring an engaging and rewarding assembly experience.
+
+Our latest offerings include highly detailed models like the Reobrix Cathedral of Notre Dame, UCS-Style Star Shuttle, and the Scorpion Submachine Gun, among others. These models not only provide an immersive building experience but also serve as magnificent display pieces.
+
+We frequently collaborate with influencers by providing free samples for them to create and share videos and pictures, helping to showcase our products to a broader audience. Our commitment to quality and innovation has earned us a loyal customer base and long-term partnerships with well-known brands.
+"
+moc,"Hello, we are a building block company based in China seeking collaboration with moc designers."
+moc2,"Hello {{}}, it's wonderful to connect with you.
+We are a building block company based in China and are interested in collaborating with moc designers. Could you please share your building block design works with us? We are keen to explore purchasing designs that meet our company's needs."
+django,"import os
+
+def setup_django_app(app_path):
+    # Extract app name from the path
+    app_name = os.path.basename(app_path)
+
+
+    urls_path = os.path.join(app_path, 'urls.py')
+    forms_path = os.path.join(app_path, 'forms.py')
+    templates_path = os.path.join(app_path, 'templates', app_name)
+    static_path = os.path.join(app_path, 'static', app_name)
+
+    if not os.path.exists(urls_path):
+        with open(urls_path, 'w') as urls_file:
+            urls_file.write(f""""""
+from django.urls import path
+from . import views
+
+app_name = '{app_name}'
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    # Add other paths here
+]
+"""""")
+ 
+    if not os.path.exists(forms_path):
+        open(forms_path, 'a').close()
+
+    #  Create templates and static directories if they don't exist
+    for directory in (templates_path, static_path):
+        os.makedirs(directory, exist_ok=True)
+
+dj = setup_django_app
+"
+dj_note,"# MODELS ************************************************************************************************************************************
+
+class Some_Model(models.Model):
+
+    class Status(models.TextChoices):
+        DRAFT = 'DF', 'Draft'
+        PUBLISHED = 'PB', 'Published'
+
+    name = models.CharField(max_length=200)
+    status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
+    
+    slug = models.SlugField(max_length=200, unique=True)
+    description = models.TextField(blank=True)
+
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts')
+
+    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    available = models.BooleanField(default=True)
+    publish = models.DateTimeField(default=timezone.now)
+    publish = models.DateTimeField(db_default=Now())
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+
+    class Meta:
+        ordering = ['name']
+        indexes = [
+            models.Index(fields=['name']),
+        ]
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+    def get_absolute_url(self):
+        return reverse('shop:product_list_by_category', args=[self.slug])
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+     def __str__(self):
+        return self.title       
+
+from django.utils.text import slugify
+
+
+
+# USER  ************************************************************************************************************************************
+
+Default User Model: You can import it directly using from django.contrib.auth.models import User.
+Recommended Approach: Use settings.AUTH_USER_MODEL in your models to refer to the user model. This approach works whether you are using the default user model or a custom one.
+
+
+# URLS ************************************************************************************************************************************
+
+path(
+    'tag/<slug:tag_slug>/', views.post_list, name='post_list_by_tag'
+    ),
+
+
+
+# PAGINATION ************************************************************************************************************************************
+
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+
+
+# Need to re-structure the listing view functions
+
+def post_list(request, tag_slug=None):
+    post_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        post_list = post_list.filter(tags__in=[tag])
+    # Pagination with 3 posts per page
+    paginator = Paginator(post_list, 3)
+    page_number = request.GET.get('page', 1)
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page_number is not an integer get the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page_number is out of range get last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(
+        request,
+        'blog/post/list.html',
+        {
+            'posts': posts,
+            'tag': tag
+        }
+    )
+
+
+# Sending Emails with Django ************************************************************************************************************************************
+
+
+### Sending Emails with Django
+
+**Key Points**:
+
+1. **SMTP Configuration**:
+   - **EMAIL_HOST**: SMTP server (default: localhost)
+   - **EMAIL_PORT**: SMTP port (default: 25)
+   - **EMAIL_HOST_USER**: SMTP username
+   - **EMAIL_HOST_PASSWORD**: SMTP password
+   - **EMAIL_USE_TLS**: Use TLS (True/False)
+   - **EMAIL_USE_SSL**: Use SSL (True/False)
+   - **DEFAULT_FROM_EMAIL**: Default sender email
+
+2. **Environment Variables**:
+   - **Security**: Protect credentials from exposure.
+   - **Flexibility**: Use the same codebase across environments.
+   - **Maintainability**: Change settings without modifying code.
+
+3. **Using `python-decouple`**:
+   - Load environment variables easily.
+   ```python
+   from decouple import config
+
+   EMAIL_HOST = 'smtp.gmail.com'
+   EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+   EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+   EMAIL_PORT = 587
+   EMAIL_USE_TLS = True
+   DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+   ```
+
+4. **Testing Without SMTP**:
+   - Write emails to console:
+   ```python
+   EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+   ```
+
+5. **Form Validation Testing**:
+   - Disable browser validation with `novalidate`:
+   ```html
+   <form method=""post"" novalidate>
+   ```
+
+6. **Best Practice**:
+   - Add `.env` to `.gitignore` to protect credentials.
+
+# Using Django with Celery and RabbitMQ  *************************************************************************************************
+docker pull rabbitmq:3.13.1-management
+docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.13.1-management
+celery -A reobrix worker -l info  (I should never use this fucking command on windows!!!!!!!!! Use below!!!!)
+celery -A reobrix worker -l info -P eventlet
+
+
+workon your_virtualenv && cd /path/to/your_project && celery -A your_project worker
+
+
+import os
+from celery import Celery
+# set the default Django settings module for the 'celery' program.
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myshop.settings')
+app = Celery('myshop')
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks()
+
+# import celery
+from .celery import app as celery_app
+__all__ = ('celery_app')
+
+
+
+
+
+
+# git ************************************************************************************************************************************
+
+__pycache__/
+db.sqlite3
+.DS_Store
+*.pyc
+.env
+my_env/
+/media
+
+git rm --cached -r **/*.pyc
+
+
+# PAGINATION TEMPLATE ************************************************************************************************************************************
+
+*** pagination.html
+
+<div class=""pagination"">
+  <span class=""step-links"">
+    {% if page.has_previous %}
+      <a href=""?page={{ page.previous_page_number }}"">Previous</a>
+    {% endif %}
+    <span class=""current"">
+      Page {{ page.number }} of {{ page.paginator.num_pages }}.
+    </span>
+    {% if page.has_next %}
+      <a href=""?page={{ page.next_page_number }}"">Next</a>
+    {% endif %}
+  </span>
+</div>
+
+*** other html which needs pagination
+
+{% include ""pagination.html"" with page=posts_products %}
+
+*** posts_products(context variable)  from views.py should be a Page object from Django's pagination system. 
+
+
+
+# SIDEBAR ************************************************************************************************************************************
+
+
+  <div id=""sidebar"">
+    <h2>My blog</h2>
+    <p>
+      I've written {% total_posts %} posts so far.
+    </p>
+    <p>
+      <a href=""{% url ""blog:post_feed"" %}"">
+        Subscribe to my RSS feed
+      </a>
+    </p>
+    <h3>Latest posts</h3>
+    {% show_latest_posts 3 %}
+    <h3>Most commented posts</h3>
+    {% get_most_commented_posts as most_commented_posts %}
+    <ul>
+      {% for post in most_commented_posts %}
+        <li>
+          <a href=""{{ post.get_absolute_url }}"">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+
+
+# Django Forms ************************************************************************************************************************************
+class NewTaskForm(forms.Form):
+    task = forms.CharField(label=""New Task"")
+
+
+# VIEWS ************************************************************************************************************************************
+tasks = []
+def post_share(request, post_id):
+    # Retrieve post by id
+    post = get_object_or_404(Post, id=post_id, status=Post.Status.PUBLISHED)
+    
+    if request.method == 'POST':
+        # Form was submitted
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            # Form fields passed validation
+            cd = form.cleaned_data
+	    tasks.append(cd[""email""])	
+            # ... send email
+            return HttpResponseRedirect(reverse(""tasks:index""))
+
+    else:
+        form = EmailPostForm()
+	return HttpResponse(""<h1 style=\""color:blue\"">Hello, world!</h1>"")
+    
+    return render(request, 'blog/post/share.html', {'post': post, 'form': form})
+
+
+
+A QuerySet is a collection of database queries to retrieve objects from your database. You can apply filters to QuerySets to narrow down the query results based on given parameters. The QuerySet equates to a SELECT SQL statement and the filters are limiting SQL clauses such as WHERE or LIMIT. Django QuerySets are lazy, which means they are only evaluated when they are forced to. 
+
+
+# TAGS ************************************************************************************************************************************
+
+from taggit.managers import TaggableManager
+from taggit.models import Tag
+# It’s really easy to add, retrieve, or remove tags from a model using the manager we have defined.
+
+tags = TaggableManager()
+
+post.tags.all()
+post.tags.add('music', 'jazz', 'django')
+post.tags.remove('django')
+
+
+
+<p class=""tags"">
+    Tags:
+    {% for tag in post.tags.all %}
+    <a href=""{% url ""blog:post_list_by_tag"" tag.slug %}"">
+        {{ tag.name }}
+    </a>{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+
+
+
+
+# Admin ************************************************************************************************************************************
+
+class ProductImagesAdmin(admin.TabularInline):
+    model = ProductImages
+
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+	inlines = [ProductImagesAdmin]
+    list_display = ['title', 'slug', 'author', 'publish', 'status', 'price', 'available']  # Ensure 'price' and 'available' are in list_display
+    list_filter = ['status', 'created', 'publish', 'author']
+    list_editable = ['price', 'available']  # Fields must be in list_display as well
+    search_fields = ['title', 'body']
+    prepopulated_fields = {'slug': ('title',)}
+    raw_id_fields = ['author']
+    date_hierarchy = 'publish'
+    ordering = ['status', 'publish']
+    show_facets = admin.ShowFacets.ALWAYS
+
+
+# Static Files ************************************************************************************************************************************
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+# ORM and Database ************************************************************************************************************************************
+
+# 0. Retrieve the user with username 'admin'
+user = User.objects.get(username='admin')
+post = Post.objects.get(id=1) # Retrieve the Post object with id 1
+
+# 1. Creating objects
+# Create a Post object with title 'A' and author 'user'
+post = Post(title='A', author=user) 
+post.save()  # Save the Post object to the database
+
+# Create a Post object with title 'B' and save it directly
+Post.objects.create(title='B')
+
+# Get or create a User object with username 'user2'
+user, created = User.objects.get_or_create(username='user2')
+
+# 2. Updating objects
+# Update the title of the post
+post.title = 'New title'
+post.save()  # Save the changes to the database
+
+# 3. Retrieving objects
+
+Post.objects.all()[:5] # Retrieve the first 5 Post objects
+Post.objects.order_by('?')[0] # Retrieve a random Post object
+Post.objects.order_by('author', '-title') # Retrieve all Post objects ordered by author (ascending) and title (descending)
+
+# 4. Deleting objects
+post.delete() # delete it
+
+# 5. Advanced Queries
+# Check if any Post objects exist that were published after January 1, 2024,
+# have an author with username 'admin', and do not have a title starting with 'Why'
+
+
+Post.objects.filter(publish__date__gt=date(2024, 1, 1)) \
+    .filter(author__username='admin') \
+    .exclude(title__startswith='Why') \
+    .exists()
+
+
+# Create Q objects for titles starting with 'who' or 'why'
+starts_who = Q(title__istartswith='who')
+starts_why = Q(title__istartswith='why')
+
+# Count the number of Post objects with titles starting with 'who' or 'why'
+Post.objects.filter(starts_who | starts_why).count()
+
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '<your_username>$<your_database_name>',
+        'USER': '<your_username>',
+        'PASSWORD': '<your_mysql_password>',
+        'HOST': '<your_mysql_hostname>',
+		'TEST': {
+            'NAME': '<your username>$test_<your database name>',
+        }
+    }
+}
+
+
+from decouple import config
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+    }
+}
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+		'TEST': {'NAME': config('TEST_DB_NAME'),}
+    }
+}
+
+
+
+
+# TEMPLATES ************************************************************************************************************************************
+
+{% include ""pagination.html"" with page=posts %}
+
+src=""{% if post.author_image %}{{ post.author_image.url }}{% else %}{% static ""blog/img/small_logo.jpg"" %}{% endif %}""
+
+<form action=""{% url ""blog:post_comment"" post.id %}"" method=""post"">
+  from blog.models import Post
+  {% csrf_token %}
+  <p><input type=""submit"" value=""Click!""></p>
+</form>
+
+
+{{ post.body|truncatewords:30|linebreaks }}  
+{{ post.tags.all|join:"", "" }}
+
+
+{% for tag in post.tags.all %}
+    <a href=""{% url ""blog:post_list_by_tag"" tag.slug %}"">
+        {{ tag.name }}
+        {{ tag.date_added|date:'M d, Y H:i' }}
+    </a>{% if not forloop.last %}, {% endif %}
+{% empty %}
+    <p>There are no tags yet.</p>
+{% endfor %}
+
+
+            {% if forloop.counter == 2 %}
+                <div class=""row-spacer d-none d-lg-block offset-top-30""></div>
+            {% endif %}
+
+
+<form action=""{% url 'tasks:add' %}"" method=""post"">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type=""submit"" name=""submit"">Log in</button>
+</form>
+
+
+
+
+
+# SESSION and CART ************************************************************************************************************************************
+
+A session in web development is similar to a Python dictionary, used to store and retrieve data for individual visitors. 
+This data, referred to as a ""session,"" is stored on the server side. Specifically, some session engines store this data in a server-side database.
+Each session has a unique identifier, known as a session ID. Visitors use this ID to access their corresponding session data. 
+Typically, the session ID is stored in cookies on the client&apos;s browser. When the visitor makes a request to the server, the cookie containing the session ID is sent along with the request. 
+This allows the server to retrieve the session data or ""account book"" for the visitor based on the session ID.
+
+# request.session is like a dict
+
+
+
+
+
+# BASIC BASE HTML TEMPLATE IN DJANGO ************************************************************************************************************************************
+
+<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>{% block title %}My Website{% endblock %}</title>
+    {% load static %}
+    <link rel=""stylesheet"" href=""{% static 'css/main.css' %}"">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header>
+        {% block header %}
+        <nav>
+            <ul>
+                <li><a href=""{% url 'home' %}"">Home</a></li>
+                <li><a href=""{% url 'about' %}"">About</a></li>
+                <li><a href=""{% url 'contact' %}"">Contact</a></li>
+            </ul>
+        </nav>
+        {% endblock %}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+        {% endblock %}
+    </footer>
+
+    <script src=""{% static 'js/main.js' %}""></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+
+
+
+# COMMANDS ************************************************************************************************************************************
+
+django-admin startproject PROJECT_NAME
+cd PROJECT_NAME
+python manage.py startapp APP_NAME
+
+# IMPORTS ************************************************************************************************************************************
+from django.http import HttpResponse
+from django.conf import settings
+from django.conf.urls.static import static
+from django.shortcuts import get_object_or_404
+from datetime import date
+from django.contrib.auth.models import User
+from blog.models import Post
+from .models import Post
+from django.db.models import Q
+from .forms import EmailPostForm
+from django.shortcuts import render, get_object_or_404
+from .models import Post
+
+
+# IMPORTANT Library
+psycopg_binary
+
+
+# Using canonical URLs for models ************************************************************************************************************************************
+
+# Creating SEO-friendly URLs for posts ************************************************************************************************************************************
+
+slug = models.SlugField(max_length=250, unique_for_date='publish')
+
+1, Modifying the URL patterns
+path('<int:year>/<int:month>/<int:day>/<slug:post>/',views.post_detail,    name='post_detail'),
+2, Modifying the views
+3, Modifying the canonical URL for posts
+
+
+
+# COMMENT ************************************************************************************************************************************
+<Creating a comment system>
+
+1, Creating a model for comments
+2, Adding comments to the administration site
+3, Creating forms from models
+4, Handling ModelForms in views
+5, Creating templates for the comment form
+6, Adding comments to the post detail view
+7, Adding comments to the post detail template
+8, Using simplified templates for form rendering
+
+
+
+------------------------------------------
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['created']
+        indexes = [
+            models.Index(fields=['created']),
+        ]
+
+    def __str__(self):
+        return f'Comment by {self.name} on {self.post}'
+
+------------------------------------------
+from .models import Comment, Post
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'post', 'created', 'active']
+    list_filter = ['active', 'created', 'updated']
+    search_fields = ['name', 'email', 'body']
+
+------------------------------------------
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['name', 'email', 'body']
+
+
+# Creating custom template tags ************************************************************************************************************************************
+# Example of simple_tag and inclusion_tag
+
+{% load blog_tags %}
+
+
+from django import template
+
+register = template.Library()
+
+@register.simple_tag
+def calculate_tax(price, tax_rate):
+    return price * tax_rate
+
+@register.simple_tag
+def total_posts():
+    return Post.published.count()
+
+@register.simple_tag(name='my_tag').
+def total_posts():
+    return Post.published.count()
+
+
+@register.inclusion_tag('show_items.html')
+def show_items(items):
+    return {'items': items}
+
+
+@register.inclusion_tag('blog/post/latest_posts.html')
+def show_latest_posts(count=5):
+    latest_posts = Post.published.order_by('-publish')[:count]
+    return {'latest_posts': latest_posts}
+
+from django.db.models import Count
+@register.simple_tag
+def get_most_commented_posts(count=5):
+    return Post.published.annotate(
+        total_comments=Count('comments')
+    ).order_by('-total_comments')[:count]
+
+
+
+<ul>
+  {% for post in latest_posts %}
+    <li>
+      <a href=""{{ post.get_absolute_url }}"">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% calculate_tax 100 0.15 %}
+
+{% show_latest_posts 3 %}
+{% show_items item_list %}
+
+
+
+
+#  Creating custom template filters ************************************************************************************************************************************
+
+
+import markdown
+from django.utils.safestring import mark_safe
+
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown(text))
+
+
+{{ post.body|markdown }}
+{{ post.body|markdown|truncatewords_html:30 }}
+
+
+
+# Docker  ************************************************************************************************************************************
+
+A Docker container is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and settings. To configure a Docker container, you start by creating a Dockerfile, a text file that contains a series of instructions on how to build a Docker Image. The Docker Image is a snapshot of the application and its dependencies, which is then used to instantiate Docker containers.
+
+Docker Container: The final cake, ready to serve.
+Dockerfile: The recipe that tells you how to make the cake.
+Docker Image: The prepared mixture based on the recipe, which you bake to get the final cake.
+
+Instead of trying to cook and serve food at the same place, you have a separate kitchen (database server) where all the food (data) is prepared and ready. Then, you bring the prepared food to the dining table (main server). Docker Compose acts like your party planner, making sure that both your dining table and kitchen are ready and coordinated so the party runs smoothly.
+
+
+0. Dockerfile instructions
+
+FROM {{ base_image }}
+COPY {{ source_directory }} {{ destination_directory }}
+WORKDIR {{ working_directory }}
+RUN {{ install_command }}
+CMD [ ""{{ executable }}"", ""{{ script }}"", ""{{ command }}"", ""{{ host }}:{{ port }}"" ]
+
+e.g.
+
+FROM python:3
+COPY .  /usr/src/app
+WORKDIR /usr/src/app
+RUN pip install -r requirements.txt
+CMD [""python3"", ""manage.py"", ""runserver"", ""0.0.0.0:8000""]
+
+docker-compose.yml 
+version: '{{ version_number }}'
+
+services:
+    {{ db_service_name }}:
+        image: {{ db_image }}
+
+    {{ web_service_name }}:
+        build: {{ build_context }}
+        volumes:
+            - {{ host_directory }}:{{ container_directory }}
+        ports:
+            - ""{{ host_port }}:{{ container_port }}""
+
+
+e.g.
+version: '3'
+
+services:
+    db:
+        image: postgres
+
+    web:
+        build: .
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - ""8000:8000""
+
+
+
+1. **`docker pull {{ image_name }}`**: 
+Downloads the specified Docker image from Docker Hub to your local machine.
+e.g. docker pull postgres:16.2  (download the PostgreSQL Docker image to your local machine.)
+
+2. **`docker run --name={{ container_name }} -e POSTGRES_DB={{ database_name }} -e POSTGRES_USER={{ database_user }} -e POSTGRES_PASSWORD={{ database_password }} -p {{ host_port }}:{{ container_port }} -d {{ postgres_image }}`**: 
+Starts a new PostgreSQL container with the specified name, environment variables, and port mappings using the specified image.
+e.g. docker run --name=blog_db -e POSRGRES_DB=blog -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=xxxxx -p 5432:5432 -d postgres:16.2
+
+
+3,
+### Summary List
+
+1. **Start Services**: Use `docker-compose up` to launch both servers inside new Docker containers.
+2. **List Running Containers**: Use `docker ps` to show all running Docker containers.
+3. **Find Container ID**: Identify the `CONTAINER ID` of the container you want to access.
+4. **Access Container**: Use `docker exec -it CONTAINER_ID bash -l` to enter the container.
+5. **Run Commands**: Perform any necessary commands within the `/usr/src/app` directory.
+6. **Exit Container**: Exit the container by running `CTRL-D`.
+
+
+# Sitemap ************************************************************************************************************************************
+
+
+1, settings.py
+SITE_ID = 1
+
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+
+2, sitemaps.py in APP
+
+3, urls.py
+
+from django.contrib.sitemaps.views import sitemap
+path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+4, http://127.0.0.1:8000/admin/sites/site/
+example.com -> localhost:8000
+
+
+
+# PostgreSQL ************************************************************************************************************************************
+
+Restaurant: Represents the overall system where interactions happen.
+Kitchen: Represents the PostgreSQL database where the data is stored and managed.
+Customer (You): Represents the Python application that wants to interact with the database.
+Waiter (psycopg): Represents the psycopg adapter that translates your queries (orders) into SQL that the PostgreSQL database (kitchen) understands, and then returns the results (food) back to your application.
+
+
+python manage.py dumpdata --indent={{ indent_level }} --output={{ output_file }}
+python manage.py loaddata {{ input_file }}
+
+
+python manage.py dumpdata --indent=2 --output=mysite_data.json
+python manage.py loaddata mysite_data.json
+
+
+
+python manage.py flush
+python manage.py flush --no-input
+Deletes all data from the database while keeping the database schema (tables) intact.
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+    }
+}
+
+
+.env
+
+DB_NAME=blog
+DB_USER=blog
+DB_PASSWORD=xxxxx
+DB_HOST=localhost
+
+
+
+# SEARCH ************************************************************************************************************************************
+
+{% extends ""blog/base.html"" %}
+{% load blog_tags %}
+
+{% block content %}
+  {% if query %}
+    <h1>Posts containing ""{{ query }}""</h1>
+    <h3>
+      {% with results.count as total_results %}
+        Found {{ total_results }} result{{ total_results|pluralize }}
+      {% endwith %}
+    </h3>
+    {% for post in results %}
+      <h4>
+        <a href=""{{ post.get_absolute_url }}"">
+          {{ post.title }}
+        </a>
+      </h4>
+      {{ post.body|markdown|truncatewords_html:12 }}
+    {% empty %}
+      <p>There are no results for your query.</p>
+    {% endfor %}
+    <p><a href=""{% url ""blog:post_search"" %}"">Search again</a></p>
+  {% else %}
+    <h1>Search for posts</h1>
+    <form method=""get"">
+      {{ form.as_p }}
+      <input type=""submit"" value=""Search"">
+    </form>
+  {% endif %}
+{% endblock %}
+
+
+
+## Functions
+
+from django import forms
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.postgres.search import SearchVector
+from django.contrib.postgres.search import (
+    SearchVector,
+    SearchQuery,
+    SearchRank
+)
+
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
+
+
+
+def search(request, queryset, search_fields):
+    form = SearchForm()
+    query = None
+    results = queryset.none()
+
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            search_vector = SearchVector(*search_fields)
+            results = queryset.annotate(search=search_vector).filter(search=query)
+    
+    paginator = Paginator(results, 3)  # Paginate with 3 items per page
+    page_number = request.GET.get('page', 1)
+
+    try:
+        items = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page_number is not an integer, get the first page
+        items = paginator.page(1)
+    except EmptyPage:
+        # If page_number is out of range, get the last page of results
+        items = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'your_template.html',
+        {
+            'items': items,
+            'query': query,
+            'form': form,
+        }
+    )
+
+
+
+
+def search2(request, queryset, search_fields):
+    form = SearchForm()
+    query = None
+    results = queryset.none()
+
+    if 'query' in request.GET:
+        form = SearchForm(request.GET)
+
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            search_vector = SearchVector(*search_fields, config='spanish')
+            search_vector = SearchVector('title', weight='A') + SearchVector('body', weight='B') # .filter(rank__gte=0.3)
+
+            search_query = SearchQuery(query, config='spanish')
+            results = queryset.annotate(search=search_vector, rank=SearchRank(search_vector, search_query)).filter(search=search_query).order_by('-rank')
+           
+
+    paginator = Paginator(results, 3)  # Paginate with 3 items per page
+    page_number = request.GET.get('page', 1)
+
+    try:
+        items = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page_number is not an integer, get the first page
+        items = paginator.page(1)
+    except EmptyPage:
+        # If page_number is out of range, get the last page of results
+        items = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        'your_template.html',
+        {
+            'items': items,
+            'query': query,
+            'form': form,
+        }
+    )
+
+
+# SHOPPING CART ************************************************************************************************************************************
+
+from decimal import Decimal
+
+from django.conf import settings
+from shop.models import Product
+
+
+class Cart:
+    def __init__(self, request):
+        """"""
+        Initialize the cart.
+        """"""
+        self.session = request.session
+        cart = self.session.get(settings.CART_SESSION_ID)
+        if not cart:
+            # save an empty cart in the session
+            cart = self.session[settings.CART_SESSION_ID] = {}
+        self.cart = cart
+
+    def __iter__(self):
+        """"""
+        Iterate over the items in the cart and get the products
+        from the database.
+        """"""
+        product_ids = self.cart.keys()
+        # get the product objects and add them to the cart
+        products = Product.objects.filter(id__in=product_ids)
+        cart = self.cart.copy()
+        for product in products:
+            cart[str(product.id)]['product'] = product
+        for item in cart.values():
+            item['price'] = Decimal(item['price'])
+            item['total_price'] = item['price'] * item['quantity']
+            yield item
+
+    def __len__(self):
+        """"""
+        Count all items in the cart.
+        """"""
+        return sum(item['quantity'] for item in self.cart.values())
+
+    def add(self, product, quantity=1, override_quantity=False):
+        """"""
+        Add a product to the cart or update its quantity.
+        """"""
+        product_id = str(product.id)
+        if product_id not in self.cart:
+            self.cart[product_id] = {
+                'quantity': 0,
+                'price': str(product.price),
+            }
+        if override_quantity:
+            self.cart[product_id]['quantity'] = quantity
+        else:
+            self.cart[product_id]['quantity'] += quantity
+        self.save()
+
+    def save(self):
+        # mark the session as ""modified"" to make sure it gets saved
+        self.session.modified = True
+
+    def remove(self, product):
+        """"""
+        Remove a product from the cart.
+        """"""
+        product_id = str(product.id)
+        if product_id in self.cart:
+            del self.cart[product_id]
+            self.save()
+
+    def clear(self):
+        # remove cart from session
+        del self.session[settings.CART_SESSION_ID]
+        self.save()
+
+    def get_total_price(self):
+        return sum(
+            Decimal(item['price']) * item['quantity']
+            for item in self.cart.values()
+        )
+		
+# WEB HTML CSS AN JS ************************************************************************************************************************************
+
+<link rel=""stylesheet"" href=""styles.css"">
+style=""color: blue; text-align: center;""
+
+h1 {
+    color: blue;
+    text-align: center;
+}		
+		
+Specificity Order
+1) In-line styling: Styles directly applied to an element using the style attribute (e.g., <h1 style=""color: green;"">). These have the highest specificity.
+2) ID: Styles defined using an ID selector (e.g., #myId). These have the next highest specificity.
+3) Class: Styles defined using a class selector (e.g., .myClass). These are less specific than IDs but more specific than element types.
+4) Element type: Styles defined using an element type selector (e.g., h1, p). These have the lowest specificity.		
+
+
+- **Multiple Element Selector (`a, b`)**
+  - Applies styles to multiple specified elements.
+
+- **Descendant Selector (`a b`)**
+  - Applies styles to elements that are descendants of a specified ancestor.
+
+- **Child Selector (`a > b`)**
+  - Selects direct children of a specified element.
+
+- **Adjacent Sibling Selector (`a + b`)**
+  - Selects an element immediately preceded by a specified element.
+
+- **Attribute Selector (`[a=b]`)**
+  - Targets elements with a specified attribute and value.
+
+- **Pseudo-class Selector (`a:b`)**
+  - Applies styles to elements in a special state.
+
+- **Pseudo-element Selector (`a::b`)**
+  - Applies styles to specific parts of an element.
+  
+  
+            @media (min-width: 600px) {
+                body {
+                    background-color: red;
+                }
+            }
+
+            @media (max-width: 599px) {
+                body {
+                    background-color: blue;
+                }
+            }  
+			
+
+
+
+### Comprehensive Summary: Responsive Design Techniques
+
+Responsive design is a critical approach in modern web development to ensure that websites are accessible and user-friendly across a variety of devices, including smartphones, tablets, and computers. The primary goal is to create a seamless experience regardless of the device's screen size.
+
+#### Viewport
+The viewport is the visible area of a web page. Traditionally, many websites assumed a fixed viewport size, leading to usability issues on mobile devices. To address this, developers can include a meta tag in the HTML head to instruct mobile devices to use a viewport width that matches the device's screen width:
+
+```html
+<meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+```
+
+#### Media Queries
+Media queries allow for conditional CSS rules based on the characteristics of the device rendering the page, such as screen width. They enable developers to apply different styles for different screen sizes. For example, changing the background color based on the screen size:
+
+```css
+@media (min-width: 600px) {
+    body { background-color: red; }
+}
+
+@media (max-width: 599px) {
+    body { background-color: blue; }
+}
+```
+
+#### Flexbox
+Flexbox is a CSS layout mode that makes it easy to design flexible responsive layout structures without using float or positioning. It allows elements to wrap onto multiple lines if there is insufficient space on the current line. Here's an example of a flex container with wrapping elements:
+
+```css
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#container > div {
+    background-color: green;
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+}
+```
+
+#### CSS Grid
+CSS Grid Layout is another powerful layout system for the web, allowing for precise control over column and row sizing, alignment, and distribution of space. It's possible to define a grid with specific column widths and gaps, as shown below:
+
+```css
+.grid {
+    background-color: green;
+    display: grid;
+    padding: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    grid-template-columns: 200px 200px auto;
+}
+
+.grid-item {
+    background-color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+```
+
+In summary, responsive design involves using the viewport meta tag, media queries, flexbox, and CSS grid to create web pages that adapt to various screen sizes and orientations, enhancing the user experience on all devices.
+
+
+SASS:
+sass test.scss:test.css
+sass --watch test.scss:test.css
+
+
+```
+$size: 18px;
+
+%message {
+    font-family: sans-serif;
+    font-size: $size;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+div {
+    font-size: 18px;
+
+    .success {
+        @extend %message;
+        background-color: green;
+    }
+
+    .error {
+        @extend %message;
+        background-color: red;
+    }
+}
+```"
+simple,"what is ""{{}}"" in simple terms"
+test,"fucking test if it works fine!!!
+***Bill Super Clipboard-just test fuck u***"
+mg,"python manage.py makemigrations
+python manage.py migrate"
+help,"I found below content in ``` ``` really hard to understand, help me:
+
+```
+{{}}
+```"
+pip3,pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+djt1,"{% extends ""core/base.html"" %}
+{% load static %}
+
+{% block content %}
+
+{{}}
+
+{% endblock %}
+"
+t,"aaa
+
+
+bbb"
+mcb,"'''
+**Background:** I'm creating a multifunctional clipboard using python along with some libraries like `pyperclip`, `re` and so on for making customized clipboard copying and pasting features.
+
+**Goal:**  I want to extend the multifunctional clipboard functionality to include {{}} and make sure to update display_help.
+
+**Here's what I've done so far:**
+- You can check my below code
+
+**Below is some of my existing setup/code:**
+
+
+Please, explain the necessary changes to the code.
+
+
+
+'''
+
+
+import shelve
+import pyperclip
+import sys
+import csv
+import os
+import lorem
+import datetime
+
+# Determine the directory of the script
+script_dir = os.path.dirname(__file__)
+# Set the directory for the database and CSV files
+data_dir = os.path.join(script_dir, 'mcb')
+# Create the directory if it does not exist
+os.makedirs(data_dir, exist_ok=True)
+
+# Adjust the filename for shelve to include the directory path
+shelve_filename = os.path.join(data_dir, 'mcb')
+
+# Open a shelve file to store the data
+my_shelf = shelve.open(shelve_filename)
+
+# Function to export data to a CSV file
+def export_to_csv(filename):
+    filepath = os.path.join(data_dir, filename)
+    with open(filepath, 'w', newline='') as csvfile:
+        fieldnames = ['key', 'value']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        for key in my_shelf.keys():
+            writer.writerow({'key': key, 'value': my_shelf[key]})
+
+# Function to import data from a CSV file
+def import_from_csv(filename):
+    filepath = os.path.join(data_dir, filename)
+    with open(filepath, newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            my_shelf[row['key']] = row['value']
+
+# Function to display help information
+def display_help():
+    help_text = """"""
+    Multi-Clipboard Script Usage:
+    -----------------------------
+    -save <keyword> [-m ""message""] : Save the current clipboard content under the specified keyword.
+                                    Optionally, add a brief usage message.
+    -delete <keyword>              : Delete the content associated with the specified keyword.
+    -delete                        : Prompt for keyword if not specified.
+    -list                          : List all saved key-value pairs and copy them to the clipboard.
+    -list -k                       : List all saved keys one per line and copy them to the clipboard.
+    -export <filename.csv>         : Export all saved data to the specified CSV file (default: mydata.csv).
+    -import <filename.csv>         : Import data from the specified CSV file (default: mydata.csv).
+    -flush                         : Clear all data from the shelve database.
+    <keyword>                      : Retrieve the content associated with the specified keyword and copy it to the clipboard.
+    -lorem1                        : Copy a lorem ipsum sentence to the clipboard.
+    -lorem2                        : Copy a lorem ipsum paragraph to the clipboard.
+    -git [""message""]               : Generate and copy Git commands to the clipboard.
+                                     If no message is provided, use the current date as the commit message.
+    -help                          : Display this help information and copy it to the clipboard.
+    """"""
+    print(help_text)
+    pyperclip.copy(help_text)
+
+# Get the length of the command line arguments
+arg_len = len(sys.argv)
+
+# Process command-line arguments
+if arg_len >= 2:
+    action = sys.argv[1].lower()
+    if action == '-save':
+        if arg_len >= 3:
+            keyword = sys.argv[2]
+            value = pyperclip.paste()
+            if arg_len >= 5 and sys.argv[3] == '-m':
+                # Append the message to the value
+                message = sys.argv[4]
+                value += f""\n***Bill Super Clipboard-{message}***""
+            my_shelf[keyword] = value
+        else:
+            print(""Keyword not specified."")
+    elif action == '-delete':
+        # Delete a specific keyword from the shelve database
+        keyword = sys.argv[2] if arg_len == 3 else None
+        if keyword and keyword in my_shelf:
+            del my_shelf[keyword]
+        elif not keyword:
+            print(""Keyword for deletion not specified."")
+    elif action == '-list':
+        if arg_len == 3 and sys.argv[2] == '-k':
+            # List all keys one per line and copy to clipboard
+            print(""List all keys one per line and copy to clipboard"")
+            formatted_keys = ""\n"".join(
+                f""{key}: {my_shelf[key].split('***Bill Super Clipboard-')[-1].rstrip('***')}"" if '***Bill Super Clipboard-' in my_shelf[key] else key
+                for key in my_shelf.keys()
+            )
+            pyperclip.copy(formatted_keys)
+            print(formatted_keys)
+        else:
+            # List all key-value pairs and copy to clipboard
+            print(""List all key-value pairs and copy to clipboard"")
+            formatted_list = f""\n**********\n"".join(f""{key}: {my_shelf[key]}"" for key in my_shelf.keys())
+            pyperclip.copy(formatted_list)
+            print(formatted_list)
+    elif action == '-export':
+        # Export the shelve database to a CSV file
+        print(""Export the shelve database to a CSV file"")
+        filename = sys.argv[2] if arg_len == 3 else 'mydata.csv'
+        export_to_csv(filename)
+    elif action == '-import':
+        # Import data from a CSV file into the shelve database
+        print(""Import data from a CSV file into the shelve database"")
+        filename = sys.argv[2] if arg_len == 3 else 'mydata.csv'
+        import_from_csv(filename)
+    elif action == '-flush':
+        # Clear all data from the shelve database
+        print(""Clear all data from the shelve database"")
+        my_shelf.clear()
+        print(""All data cleared from the shelve."")
+    elif action == '-help':
+        # Display help information and copy it to the clipboard
+        display_help()
+    elif action == '-lorem1':
+        pyperclip.copy(lorem.sentence().title())
+    elif action == '-lorem2':
+        pyperclip.copy(lorem.paragraph())
+    elif action == '-git':
+        if arg_len == 3:
+            message = sys.argv[2].strip('""')
+        else:
+            message = datetime.datetime.now().strftime(""%B %d, %Y, %I:%M %p"")
+        git_commands = f'git add .\ngit commit -m ""{message}""\ngit push'
+        pyperclip.copy(git_commands)
+        print(git_commands)
+    else:
+        # Retrieve and paste a value from the shelve database by keyword
+        if action in my_shelf:
+            content = my_shelf[action]
+            # Replace any content within curly braces {{}} with the current clipboard content
+            if '{{' in content and '}}' in content and ""dj_note"" not in action:
+                content_to_paste = pyperclip.paste()
+                content = content.replace(content[content.find('{{'):content.find('}}')+len('}}')], content_to_paste)
+            # Remove the brief usage message before copying to clipboard
+            if ""***Bill Super Clipboard-"" in content:
+                content = content.split(""\n***Bill Super Clipboard-"")[0]
+            pyperclip.copy(content.strip().strip(""\""""))
+
+# Always close the shelve file
+my_shelf.close()
+
+
+
+
+
+
+
+"
+glog,git log --pretty=oneline
+comment,"Act as a social media assistant for Reobrix, a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. We are dedicated to inspiring creativity and providing a unique building experience through our diverse product collections, including the Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, and Power Engineering Series. Our products are available in over 150 countries and are known for their detailed and realistic models.
+
+You will help craft thoughtful, engaging, witty and professional responses to comments on our social media posts. Whether the comments are positive, negative, or inquisitive, your replies should reflect Reobrix's commitment to quality, creativity, and customer satisfaction."
+fuck1,"帮我写一份周报（即一周的总结），
+
+我主要的工作是：
+a) 市场推广: 社媒日常运营（重点产品、公司重要事件发布、公司形象/文化展示）; 与知名网红的合作; 以及偶尔的推广图片翻译 
+b) 官网运营： 官网日常维护（新闻上线，或后台修复）; 官网SEO优化、网站曝光量、流量增长、为了提升B端客户数量;日常售后补件处理； 官网客服对话插件，B端客户引荐，用户反馈收集
+
+需要列出的有以下4项：
+1， 本周计划（50汉字以内）
+2， 本周工作（500汉字以内）
+3， 本周总结（500汉字以内）
+4， 下周计划（100汉字以内）
+***Bill Super Clipboard-“写鸡巴周报***"
+analyze,"Help me analyze the provided code snippet below:
+
+```
+{{}}
+```
+***Bill Super Clipboard-analyze code snippet***"
+djrun,python manage.py runserver
+fuck2,"Our company which in china, with brand name Reobrix, is making and selling building blocks like Lego's (but you can not use LEGO word as company or product intro too often as Lego is other brand name, which would violate laws ) below is a BRANDINTRODUCTION
+:
+REOBRIX BUILDING BLOCK MOLDS ARE SOLDIN MORE THAN 150 COUNTRIES AND REGIONSAROUND THE WORLD. THE CHANNELS COVERE-COMMERCE, SHOPPING MALLS, SUPERMAR-KETS AND SPECIALTY STORES, ETC., AND ARECURRENTLY SOLD AT MORE THAN 2000 SALESTERMINALS AROUND THE WORLD.WE FOCUSON THE CONSTRUCTION AND DEVELOPMENTOF BRAND. CULTURE, AND CREATIVITY. SINCETHE ESTABLISHMENT OF THE COMPANY. WEHAVE REGISTERED A NUMBER OF DESIGN ANDUTILITY MODEL MAJORS. WE HAVE ALSOSIGNED PRODUCT AUTHORIZATIONS WITHMANY WELL-KNOWN BRANDS, AND THEPRODUCTS WE HAVE LAUNCHED HAVE ALSOBEEN FAVORED BY MANY CUSTOMERS.RECOGNIZED AND ESTABLSHED LONG-TERMCOOPERATION.
+And now our company is asking me to find MOC designers and their works all over the world, so later as we accumulate them, we can cooperate and buy their works, which is our purpose, so your job currenly is helping me, probably first by giving all the platform links or approaches where i can do this work.
+***Bill Super Clipboard-找moc“***"
+remember,"1，委屈先自己承受着
+
+在好的情况，可以去任性；但是在逆境，又不能承受委屈，那就加速完蛋
+
+2，思考自己最核心的优势是什么
+
+
+一，关于解决问题
+A，永远会找最快的方式解决问题，但是不一定非得去采纳 ； 如果不能找到最快，那就得找到最平衡的解决问题方式
+B，会迅速归纳问题的共同点，并制作工具去解决DFTBHI
+C, 时间最重要，所以效率最关键
+
+
+DFTBHIC
+
+divide and conquer
+framework
+tools
+backward thinking
+higher view
+intersection
+connect"
+today,"Using Remote Desktop Protocol (RDP) for file sharing can provide a secure and familiar method for remote access. Here’s how you can set up RDP for Company A to access files on a dedicated PC at Company B, requiring user authentication for added security:
+
+### Step 1: Prepare the Dedicated PC at Company B
+
+#### 1.1 Install and Set Up Windows
+Ensure the dedicated PC has Windows 10 Pro or Windows Server edition installed.
+
+#### 1.2 Enable Remote Desktop
+1. **Enable Remote Desktop**:
+   - Go to **Settings > System > Remote Desktop**.
+   - Toggle **Enable Remote Desktop** to **On**.
+   - Note the name of the PC for remote access (you can also set up a static IP address as mentioned earlier).
+
+#### 1.3 Create User Accounts
+1. **Create Local Users**:
+   - Go to **Settings > Accounts > Family & other users**.
+   - Under **Other users**, click **Add someone else to this PC**.
+   - Follow the prompts to create a local user account for each staff member at Company A who needs access.
+
+2. **Assign Passwords**:
+   - Ensure each user has a strong password set.
+
+3. **Allow Users to Connect Remotely**:
+   - Go to **Settings > System > Remote Desktop > Select users that can remotely access this PC**.
+   - Click **Add** and add the user accounts you created.
+
+### Step 2: Configure Network Settings
+
+#### 2.1 Assign a Static IP Address
+1. Open **Settings** and go to **Network & Internet > Status > Change adapter options**.
+2. Right-click your network connection and select **Properties**.
+3. Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
+4. Select **Use the following IP address** and enter a static IP address, subnet mask, and default gateway.
+
+#### 2.2 Configure Firewall for Remote Desktop
+1. Open **Settings** and go to **Update & Security > Windows Security > Firewall & network protection**.
+2. Click on **Allow an app through firewall**.
+3. Ensure that **Remote Desktop** is checked for the network type you are using (private or public).
+
+### Step 3: Access the Dedicated PC from Company A
+
+#### 3.1 Connect Using Remote Desktop
+1. On a computer at Company A, open **Remote Desktop Connection** (search for it in the start menu).
+2. Enter the name or static IP address of the dedicated PC at Company B.
+3. Click **Connect**.
+4. When prompted, enter the username and password for the user account created on the dedicated PC at Company B.
+5. Optionally, save the credentials.
+
+### Step 4: Transfer Files Using Remote Desktop
+
+1. **Enable Clipboard and Drive Sharing**:
+   - Before connecting via Remote Desktop, click on **Show Options**.
+   - Go to the **Local Resources** tab.
+   - Under **Local devices and resources**, check **Clipboard** and **More**.
+   - Check the drives you want to access remotely and click **OK**.
+
+2. **Transfer Files**:
+   - Once connected, you can use **File Explorer** on the remote desktop to access local drives and transfer files between the local computer and the remote PC.
+
+### Summary
+
+1. **Enable Remote Desktop** on the dedicated PC at Company B.
+2. **Create User Accounts** and allow them to connect remotely.
+3. **Assign a Static IP Address** to the dedicated PC.
+4. **Configure Firewall Settings** to allow Remote Desktop connections.
+5. **Connect Using Remote Desktop** from Company A.
+6. **Enable Clipboard and Drive Sharing** for file transfer.
+
+This setup ensures that each staff member at Company A will use their own credentials to access the dedicated PC at Company B, providing secure and authenticated access to files through a familiar RDP interface."
+prompt,"
+1,
+Explain the code below:
+
+```
+Place code here
+```
+
+2,
+Can you guide me step by step to learn [technology]?  Make this interactive and prompt me as we learn.
+
+
+
+3,
+I know [ABC technology].  Can you help me learn [XYZ technology] by incorporating concepts that I already know?
+
+Take me step by step through this and make the learning interactive by prompting me.
+
+
+
+4, 
+I just finished learning [XYZ Concept].  What are some possible next learning paths if I want to become [dream job]?
+
+
+5, 
+I just finished learning [XYZ Concept] and I want to practice my skills.  Can you give me a [skill level (beginner, intermediate, advanced)] level project brief and some hints to get me started?
+
+
+6, 
+
+I just finished learning [XYZ concept].  Can you build me a comprehensive quiz that tests my knowledge of this and walk me through the quiz step by step?
+
+
+7,
+I'm building [project title].  It will have the following features:
+
+- [Feature 1]
+- [Feature 2]
+- [Feature 3]
+
+What tools or technologies would be well-suited for this type of project?  I am most comfortable with the [your favorite language] programming language.
+
+8, 
+
+Build me a [coding language] utility function that [describe what it does].  It should accept the following parameters as input: [list inputs]
+
+
+
+9,
+
+Can you improve my code?
+
+```
+Add your code here
+```
+
+"
+moc3,"Hi, we are a building block company based in China and are interested in collaborating with moc designers. Could you please share your building block design works with us? We are keen to explore purchasing designs that meet our company's needs."
+product,"As is stated, Our company is a building block manufacturer in China with brand name ""Reobrix"" and we produces lego-like bricks, below excerpts is its model description, 
+Generate a comprehensive summary for this product.
+
+
+'''
+{{}}
+'''"
+note,"cp.bat:
+@pyw.exe C:\Users\Administrator\Desktop\work2024\myauto\mcb.pyw %*
+
+
+
+
+A batch file is a script file in Windows that contains a series of commands that are executed in sequence. It's like a text file containing a list of commands that you could type into the command prompt one by one.
+
+Let's break down the command you provided:
+
+```batch
+@pyw.exe C:\Python34\mcb.pyw %*
+```
+
+- `@` at the beginning is used to prevent echoing of the command to the console when it's executed.
+- `pyw.exe` is the Python interpreter for running Python scripts without a console window. The `.pyw` extension is used for Python scripts that are meant to be run in this manner, without a console window popping up.
+- `C:\Python34\mcb.pyw` is the path to the Python script `mcb.pyw` that you want to run.
+- `%*` passes any command line arguments provided to the batch file to the Python script.
+
+The `.pyw` extension is used to differentiate Python scripts that should run with a console window (`.py`) from those that should run without one (`.pyw`).
+
+`py.exe` and `pyw.exe` are the Python interpreters for running Python scripts with and without console windows, respectively. `py.exe` is used for scripts that require a console window, while `pyw.exe` is used for scripts that don't need one.
+
+To run this script from the Run... window, you would create a batch file (`mcb.bat` in this case) with the provided content and place it in a directory that is included in your system's PATH environment variable. This allows Windows to find and execute the batch file from anywhere in the command prompt or the Run... window.
+
+Regarding your second question:
+
+```batch
+@py.exe C:\path\to\your\pythonScript.py %*
+@pause
+```
+
+- `@py.exe C:\path\to\your\pythonScript.py %*`: This line is similar to the previous one but uses `py.exe` instead of `pyw.exe`. It runs a Python script (`pythonScript.py`) with a console window, passing any command line arguments (`%*`) to the script.
+- `@pause`: This command pauses the execution of the batch file and displays the message ""Press any key to continue . . ."". It's useful to prevent the console window from closing immediately after the script finishes running, allowing you to see any output or error messages.
+
+
+python.exe is the standard Python interpreter, while py.exe is a more versatile launcher that can be used to manage and run Python scripts with more flexibility, especially in environments with multiple Python versions.
+
+
+
+
+
+
+
+
+
+for the fb's Notifications settings, i saw ""in-app only"", for example undeder Tags , reminders and so on, i dont know what dosi ti mean
+
+
+1， 请帮我分析一下以下标题有什么风格和特点：
+
+
+「有病文学，有病且高级的朋友圈文案
+
+一些合法但有病的朋友圈文案
+
+偷一句，去笑死你的朋友圈
+
+太爱这种疯癫的文案了，演我的日常精神状态
+
+那些吐槽人生稀碎的爆笑神短句」
+
+2， 请帮我按照以上的风格特点，仿写 10 个同样风格的标题
+
+
+
+卡通女孩背着双肩背包正在喝饮料，肩膀上有一只花栗鼠，可爱美术风格，插画风格，可爱卡通风格，素描风格，动漫风格插画，可爱的艺术作品
+
+
+
+**AI在用｜用Kimi写“发疯”文案，篇篇10万+**
+
+文章讲解了使用AI工具生成高流量公众号文案的方法，具体步骤如下：
+
+### 第一步：使用Kimi生成文案
+
+1. **生成标题**
+   - **分析现有标题**：例如“有病文学，有病且高级的朋友圈文案”，“太爱这种疯癫的文案了，演我的日常精神状态”等。
+   - **仿写标题**：提示Kimi根据分析的风格特点仿写10个类似风格的标题。
+
+2. **生成文案**
+   - **搞笑文案示例**：例如“人生就像豆腐脑，甜咸都无所谓，反正都是稀碎”，“我的钱虽然不像大风刮来的，但是很像大风刮走的”等。
+   - **仿写文案**：提示Kimi根据示例生成10个搞笑文案，并从中挑选8句最有意思的文案。
+
+### 第二步：使用Dreamina生成配图
+
+1. **打开Dreamina**：通过链接（https://dreamina.jianying.com/ai-tool/home）使用抖音扫码登录。
+2. **生成图片**：
+   - **输入提示词**：例如“卡通女孩背着双肩背包正在喝饮料，旁边跟着一只狗，可爱美术风格，插画风格，可爱卡通风格，素描风格，动漫风格插画，可爱的艺术作品”。
+   - **选择生成参数**：生成模型选择“即梦通用 V1.4”，精细度30，比例1:1。
+   - **生成图片**：生成两次得到8张配图。
+
+### 第三步：编辑器排版
+
+1. **选择编辑器**：使用微信公众号编辑器（135编辑器或秀米）。
+2. **排版**：将生成的文字和配图一一对应，编辑排版使界面简洁好看。
+
+通过以上步骤，使用Kimi和Dreamina工具快速高效地生成搞笑文案和配图，打造高流量公众号内容。"
+moc_work,"Below is a intro for a building block set I found online, and you help me extract its key info in format like below example and using Chinese:
+""""""
+MOC设计项目:
+作者:
+来源:
+作品简介:
+""""""
+
+for example:
+""""""
+MOC设计项目：原神游戏的玉京台
+作者：Hugo Huang
+来源：https://www.brothers-brick.com/2024/06/09/the-jade-chamber-of-genshin-impact-descends-like-a-ton-of-lego-bricks/
+作品简介：原神游戏中的建筑。LEGO设计师Hugo Huang在微缩比例上重现了玉京台的宏伟，将其从天而降拯救城市的高潮时刻栩栩如生地展现出来。Hugo巧妙地捕捉了宫殿的曲线和复杂的角度，以及细致的接合和金色装饰。Osial的蓝色头部、汹涌的海浪和微型人偶进一步提升了场景的规模感。宁光会为此感到自豪！这是第二次在此展示玉京台，但这座标志性的宫殿也很好地融入了建立在浮动岩石上的城堡的宏伟传统中。
+""""""
+
+the intro I found is:
+""""""
+{{}}
+"""""""
+post3,"Our company, Reobrix, is a building block manufacturer in China that produces LEGO-like bricks. Below in triple quotes are excerpts from a model description. I would like you to complete three tasks:
+
+TASK 1:
+Provide a summary of the model description.
+
+TASK 2:
+Based on the description, create example posts for promoting the product on the following social networks: Facebook, Twitter, Instagram, YouTube, TikTok, and LinkedIn. Make sure to include appropriate hashtags for building blocks (such as #constructiontoys and #interlockingbricksystem), and be sure to include at least five hashtags, including #reobrix. Don't forget to include our website link: https://reobrix.com/, no hyper link, just text link!!
+
+
+
+TASK 3:
+For the YouTube post, provide two potential titles that start with the Reobrix brand name, such as ""Reobrix Supercar ..."".
+
+Thank you!
+
+""""""
+{{}}
+
+"""""""

@@ -1,0 +1,32 @@
+Certainly! Let's analyze the YouTube channel **Desphixs**. This channel is run by Destiny Franks, a 22-year-old Nigerian programmer who is deeply passionate about coding. Desphixs shares knowledge and tutorials related to programming, software engineering, machine learning, and all things IT. The channel primarily focuses on Python and JavaScript, aiming to equip viewers with free resources to kickstart their coding journey and excel in the software engineering and programming industry⁴.
+
+Here are some key details about the channel:
+
+1. **Channel Overview**:
+   - **Name**: Desphixs
+   - **Subscribers**: Approximately 11,000
+   - **Videos**: 341
+   - **Content Focus**: Programming, software engineering, machine learning, and IT topics
+
+2. **Popular Videos**:
+   - **E-commerce Website using Django | Live Demo**: A video demonstrating the creation of an e-commerce website using Django and JavaScript. It covers features like user authentication, product details, cart, wishlist, reviews, vendor management, tags, filters, payment, and invoices¹.
+   - **Django Login and Registration with Database**: A tutorial series for students learning Django while building an online store. It covers login, registration, and user authentication¹.
+
+3. **Other Playlists**:
+   - **Django And React**: Building a multivendor e-commerce website using Django, React, and Django Rest Framework.
+   - **Hotel Management System with Django**: Tutorials related to creating a hotel management system.
+   - **Chat App using Django Restframework and React**: Building a real-time chat app using Django and React⁴.
+
+Feel free to explore Desphixs' channel for more valuable content! 😊🚀
+
+
+
+
+docker run --name=blog_db -e POSRGRES_DB=blog -e POSTGRES_USER=blog -e POSTGRES_PASSWORD=12345 -p 5432:5432 -d postgres:16.2
+
+
+
+
+
+
+

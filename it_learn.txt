@@ -1,0 +1,99 @@
+The challenge for new online businesses is to understand the opportunities of social media but also its limitations, and to use this understanding to post engaging content that is likely to increase engagement (engagement is the one of the key metrics that determines success in the use of social media — basically, it’s how many people are engaging with your content by liking, commenting on or sharing it).
+
+Content in social media terms is one of the key outputs of a successful social media strategy. Content is generally visual assets, such as pictures or video. Very rarely does content refer to text (or copy) when it comes to social media — it’s a highly visual channel.
+
+A social media influencer makes money by being paid to post content across social media platforms (mainly Instagram) that shows certain products they claim to use. Alternatively, influencers can be paid dependent on their performance — for example, they may get paid a percentage of the sales that they refer to a website.
+
+
+
+The social media team is responsible for coordinating and overseeing the interactions with influencers. This involves tasks such as:
+
+1. Identifying Potential Influencers: The social media team researches and identifies influencers who align with the brand's values, target audience, and marketing goals.
+
+2. Outreach and Negotiation: The team reaches out to influencers, negotiates collaborations, and discusses terms such as compensation, product gifting, content requirements, and posting schedules.
+
+3. Content Planning and Creation: The social media team collaborates with influencers to plan content that resonates with the audience and promotes the brand effectively. They may provide guidelines, brand assets, and creative direction to ensure consistency with the brand image.
+
+4. Relationship Management: The team maintains relationships with influencers, communicates expectations, provides support, and addresses any issues that may arise during the collaboration.
+
+5. Performance Tracking: The social media team monitors the performance of influencer campaigns, tracks key metrics such as engagement, reach, and conversions, and evaluates the effectiveness of the partnerships.
+
+
+
+There are varying levels of influencer:
+
+Mega: 1 million or more followers
+Macro: 500,000–1 million followers
+Mid-tier: 50,000–500,000 followers
+Micro: 10,000–50,000 followers
+Nano: 1,000–10,000 followers
+
+So, what does it cost to use an influencer to promote your business? According to an article on Instagram influencer marketing on the Shopify blog, you can expect to pay (US$):
+
+Nano influencers: $10–$100 per post
+Micro influencers: $100–$500 per post
+Mid-tier influencers: $500–$5K per post
+Macro influencers: $5K–10K per post
+Mega influencers: $10K+ per pos
+
+
+You can use online keyword research tools to get ideas on what keywords to use, find out the search volume of certain keywords and work out how many people search for these keywords each month (keyword research is also useful when thinking about which products to source as well). Google Trends is useful for keyword research , and Google also offers another free tool called the Google Keyword Planner, which you can access when you create a Google Ads account. Other keyword research websites offer both free and paid plans, such as keywordtooldominator.com and semrush.com.
+
+
+You can add keywords in three main places in Shopify to improve the SEO for your online store:
+
+Titles and meta descriptions
+Alt text on images
+H1 headers
+
+The title tag and meta description are two of the most important elements of SEO. They’re shown in search engine results and provide information to people who are looking for things related to your products. A good title and meta description encourages customers to click the link in search results to visit your store. By title (or meta title), I mean the name of your page or collection that displays in your search engine results — as opposed to your H1 header, which is the name of your product, page or collection as your customers sees it on your website.
+A meta description is the brief bit of text that is shown in search engine results after the title tag. The meta description can be set for webpages, product pages, collection pages and blog posts in Shopify. Make sure each page has a unique meta description that uses plain, direct language. A good description encourages more people to click on the link to your store. Make sure to include relevant keywords to help new customers find your link, and to include your store name. Use natural, readable phrases rather than lists of keywords. You can enter up to 320 characters in the description.
+An H1 header is the main heading at the top of a page. When you create a product page, collection page, webpage or blog post, Shopify uses the title that you use (such as Men’s Jeans) to generate the H1 header for the page. The largest text size on a page is often the H1 header, and search engines use them to determine what the page content is about. When you enter a page title, include your main keywords so the H1 header automatically includes them.
+
+
+
+
+
+综合SEO总结：
+
+1. **关键词选择 (短期策略: 关键词优化)：**
+   - 使用工具如 Google Trends、Google Keyword Planner 等，确定相关性高、搜索量高、竞争少的关键词。
+   - 增加网站内容中的关键词密度，确保流量标准建议大于每月100次搜索。
+
+2. **内容创作 (短期策略: 内容策划)：**
+   - 创作有价值、吸引人、独特的信息和博客，以满足用户需求。
+
+3. **品牌建设 (长期策略)：**
+   - 通过内容和时间建立品牌声誉。
+
+4. **社区参与 (长期策略)：**
+   - 在社交媒体和论坛等平台积极参与，增加品牌曝光和链接数量。
+
+5. **技术性优化：**
+   - 确保页面的 Titles 和 meta descriptions 优化良好。
+   - 对图片使用 Alt 文本描述。
+   - 使用 H1 标题，结合关键词为每个页面创建独特的标题。
+   - 确保网站结构清晰，易于导航，并且在移动端优化良好。
+
+6. **网站结构优化：**
+   - 确保网站结构清晰，易于导航，移动端优化好。
+
+7. **数据监测和后期优化：**
+   - 使用 Google Search Console 或其他 SEO 工具监测流量、点击率、排名等数据。
+   - 针对排名靠前的关键词，自然地将其加入相关文章中，提高排名。
+   - 优化点击率较低的关键词，改进标题以提高吸引力。
+
+
+
+
+
+
+
+
+
+
+let languages = [];
+languages.push("Python");
+languages.unshift("Erlang");
+languages.pop();
+let worstLanguage = languages.shift();

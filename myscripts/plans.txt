@@ -1,0 +1,20 @@
+Probability-5mins 5
+Calculus-5mins 4
+Django-10mins 4
+Mix_Book-10mins 6
+Game_Theory-10mins 4
+
+# exercises
+Push-up-5 6
+Push-up-10 5
+
+
+Meditation-10mins 4
+Buddhism_Book-15mins 4
+X_Project-10mins *3
+
+
+
+Game-20mins 3
+Game-40mins 2
+Drama-30mins 3

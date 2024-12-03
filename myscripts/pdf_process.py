@@ -505,9 +505,9 @@ def create_pdf_from_clipboard(output_pdf_path):
     print(f"PDF created successfully: {output_pdf_path}")
 
 
-output_folder = r"C:\Users\recur\Desktop\WORK\my_auto\books"
+output_folder = r"G:\myauto2023\my_auto2025\myscripts"
 # Example usage:
-output_filename = 'plan.pdf'
+output_filename = 'planx.pdf'
 output_file_path = os.path.join(output_folder, output_filename)
 create_pdf_from_clipboard(output_file_path)
 

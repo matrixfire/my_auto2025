@@ -2,6 +2,58 @@
 
 ##########################################################################
 
+# COMPRESS
+
+import fitz  # PyMuPDF
+from pathlib import Path
+
+def compress_pdf(input_path, output_path, dpi_reduction=150):
+    """
+    Compress a PDF by reducing the resolution of images.
+
+    Args:
+        input_path (str or Path): Path to the input PDF.
+        output_path (str or Path): Path to save the compressed PDF.
+        dpi_reduction (int): DPI to scale images (default is 150).
+    """
+    try:
+        input_pdf = fitz.open(input_path)
+        output_pdf = fitz.open()  # New compressed PDF
+
+        for page_num in range(input_pdf.page_count):
+            page = input_pdf.load_page(page_num)
+            
+            # Create a new page in the output PDF with the same dimensions
+            new_page = output_pdf.new_page(width=page.rect.width, height=page.rect.height)
+
+            # Render the page as an image with reduced DPI
+            pix = page.get_pixmap(dpi=dpi_reduction)
+            
+            # Create a rectangle matching the size of the original page
+            rect = fitz.Rect(0, 0, page.rect.width, page.rect.height)
+            
+            # Insert the rendered image back into the new page
+            new_page.insert_image(rect, pixmap=pix)
+
+        # Save the compressed PDF
+        output_pdf.save(output_path, deflate=True)  # Enable compression
+        print(f"Compressed PDF saved at: {output_path}")
+
+    except Exception as e:
+        print(f"Error during compression: {e}")
+
+    finally:
+        input_pdf.close()
+        output_pdf.close()
+
+
+if __name__ == "__main__":
+    # Input and output paths
+    input_file = Path(r"G:\books\parts\interleaved_output_with_labels.pdf")
+    output_file = Path(r"G:\books\parts\interleaved_output_with_labels_compressed.pdf")
+    
+    # Call the compression function
+    compress_pdf(input_file, output_file)
 
 
 
@@ -100,11 +152,10 @@ extract()
 ##########################################################################
 
 
-
 import fitz  # PyMuPDF
-import os
+from pathlib import Path
 
-def interleaving_combine_pdfs_with_circles():
+def interleaving_combine_pdfs_with_circles(dir_path, output_file_name):
     # Step 1: Ask how many PDFs the user wants to combine
     num_pdfs = int(input("Enter the number of PDFs to combine: "))
     
@@ -116,10 +167,18 @@ def interleaving_combine_pdfs_with_circles():
     pdf_paths = []
     for i in range(num_pdfs):
         pdf_path = input(f"Enter the path for PDF {i+1}: ").strip().strip('"')  # Remove quotes and spaces
+        if not Path(pdf_path).is_file():
+            print(f"File not found: {pdf_path}")
+            return
         pdf_paths.append(pdf_path)
     
     # Step 3: Open all PDFs
-    pdfs = [fitz.open(path) for path in pdf_paths]
+    pdfs = []
+    try:
+        pdfs = [fitz.open(path) for path in pdf_paths]
+    except Exception as e:
+        print(f"Error opening PDFs: {e}")
+        return
     
     # Step 4: Create a new PDF for the combined result
     output_pdf = fitz.open()
@@ -148,17 +207,19 @@ def interleaving_combine_pdfs_with_circles():
                 draw_colored_circle(page, colors[i % len(colors)])  # Alternate through the colors
 
     # Step 8: Save the combined PDF output path
-    output_file_name = "interleaved_output_with_circles.pdf"
-    output_file_path = os.path.abspath(output_file_name)
-    output_pdf.save(output_file_path)
-    output_pdf.close()
-    
+    # output_file_name = "interleaved_output_with_circles.pdf"
+    output_file_path = Path(dir_path, output_file_name)
+    try:
+        output_pdf.save(output_file_path)
+        print(f"PDFs have been successfully interleaved with colored circles. The combined file is saved at:\n{output_file_path}")
+    except Exception as e:
+        print(f"Error saving the output PDF: {e}")
+    finally:
+        output_pdf.close()
+
     # Close the individual PDFs
     for pdf in pdfs:
         pdf.close()
-
-    # Step 9: Print the absolute path of the combined output PDF
-    print(f"PDFs have been successfully interleaved with colored circles. The combined file is saved at:\n{output_file_path}")
 
 # Helper function to draw a small circle at the top-left corner of a PDF page
 def draw_colored_circle(page, color):
@@ -170,7 +231,11 @@ def draw_colored_circle(page, color):
     page.draw_circle(center=circle_center, radius=circle_radius, color=color, fill=color)
 
 # Call the function to combine PDFs with colored circles
-interleaving_combine_pdfs_with_circles()
+if __name__ == "__main__":
+    interleaving_combine_pdfs_with_circles(Path(r"G:\books\parts"), "interleaved_output_with_circles.pdf")
+
+
+
 
 ##########################################################################
 
@@ -348,7 +413,7 @@ def interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename
 def write_page_label(page, label, color):
     # Define text position and appearance
     text_position = (30, 105)  # Coordinates near the top-left corner
-    font_size = 100  # Font size for the label
+    font_size = 10  # Font size for the label
     page.insert_text(text_position, label, fontsize=font_size, color=color)
 
 # Example usage
@@ -356,18 +421,18 @@ def write_page_label(page, label, color):
 
 # Define the list of PDFs with paths, labels, and group sizes
 pdf_specs = [
-    (r"G:\books\parts\15math_brief_all.pdf", "", 3),
-    (r"G:\books\parts\16learn_ultra.pdf", "", 3),
-    (r"G:\books\parts\7math_extra.pdf", "", 2),
-    (r"G:\books\parts\6math_extra2.pdf", "", 1),
-    (r"G:\books\parts\17cartoon statistics.pdf", "", 2),
-    (r"G:\books\parts\11Introduction to number theory.pdf", "", 1),
-    (r"G:\books\parts\9differential equation.pdf", "", 1),
+    (r"G:\books\probability and statistics(5-251).pdf", "", 2),
+    (r"G:\books\c++.pdf", "", 2),
+    
+    (r"G:\books\parts\interleaved_output_with_circles.pdf", "", 2),
+    (r"G:\books\parts\8grokking algorithms 2nd Edition.pdf", "", 2),
+
+
 
 ]
 
 
-
+output_folder=r"G:\books\parts"
 output_filename = "interleaved_output_with_labels.pdf"
 
 interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename)
@@ -384,9 +449,9 @@ from datetime import datetime, timedelta
 import pyperclip
 
 # Constants for total pages
-ORIGINAL_PAGES = 794  # Original book pages
-DAYS_LEARN = 90  # Total days for learning
-review_intervals = [0, 1, 2, 4, 8, 16, 32, 64]
+ORIGINAL_PAGES = 1176  # Original book pages
+DAYS_LEARN = 365  # Total days for learning
+review_intervals = [0, 1, 2, 4, 8, 16, 32, 64, 128]
 
 ADDITIONAL_PAGES = 0  # Additional content
 
@@ -464,6 +529,7 @@ print("\nThe schedule has been copied to the clipboard.")
 
 import fitz  # PyMuPDF
 import pyperclip
+import os
 
 def create_pdf_from_clipboard(output_pdf_path):
     # Get clipboard content using pyperclip
@@ -505,9 +571,9 @@ def create_pdf_from_clipboard(output_pdf_path):
     print(f"PDF created successfully: {output_pdf_path}")
 
 
-output_folder = r"G:\myauto2023\my_auto2025\myscripts"
+output_folder = r"G:\books\parts"
 # Example usage:
-output_filename = 'planx.pdf'
+output_filename = 'plans.pdf'
 output_file_path = os.path.join(output_folder, output_filename)
 create_pdf_from_clipboard(output_file_path)
 
@@ -550,9 +616,9 @@ def resize_pdf_to_match(input_pdf, reference_pdf, output_pdf):
     print(f"PDF resized successfully and saved to: {output_pdf}")
 
 # Example usage
-input_pdf = r"G:\books\output\interleaved_output_with_labels.pdf"
-reference_pdf = r"G:\books\output\plan.pdf"
-output_pdf = r"G:\books\output\resized_output.pdf"
+input_pdf = r"G:\books\parts\interleaved_output_with_labels_compressed.pdf"
+reference_pdf = r"G:\books\parts\plans.pdf"
+output_pdf = r"G:\books\parts\resized_output2025.pdf"
 
 resize_pdf_to_match(input_pdf, reference_pdf, output_pdf)
 
@@ -568,15 +634,15 @@ import fitz  # PyMuPDF
 
 
 # Input and output file paths
-input_pdf_path = r"C:\Users\recur\Desktop\WORK\my_auto\books\django5 book(5-798).pdf"
-output_pdf_path = r"C:\Users\recur\Desktop\WORK\my_auto\books\django5 book(5-798)_lb.pdf"
+input_pdf_path = r"G:\books\parts\resized_output2025.pdf"
+output_pdf_path = r"G:\books\parts\resized_output2025_.pdf"
 
 
 
 # Constants
-ORIGINAL_PAGES = 1126  # Original book pages
+ORIGINAL_PAGES = 1176  # Original book pages
 ADDITIONAL_PAGES = 0  # Additional content is zero
-DAYS_LEARN = 90  # Total days for learning
+DAYS_LEARN = 365  # Total days for learning
 
 # Calculate total pages and pages per day
 total_pages = ORIGINAL_PAGES + ADDITIONAL_PAGES
@@ -673,8 +739,8 @@ def combine_pdfs(pdf_paths, output_folder, output_filename):
 
 # Example usage
 pdf_paths = [
-    r"G:\books\output\plan.pdf",
-    output_pdf_path
+    r"G:\books\parts\plans.pdf",
+    r"G:\books\parts\resized_output2025_.pdf",
 ]
 output_folder = r"G:\books\output"
 output_filename = "combined_output.pdf"
@@ -700,8 +766,9 @@ combine_pdfs(pdf_paths, output_folder, output_filename)
 
 import fitz  # PyMuPDF
 import os
+from pathlib import Path
 
-def combine_pdfs():
+def combine_pdfs(dir_path):
     # Step 1: Ask how many PDFs the user wants to combine
     num_pdfs = int(input("How many PDFs do you want to combine? "))
     
@@ -723,7 +790,7 @@ def combine_pdfs():
     
     # Step 5: Define and save the combined PDF output path
     output_file_name = "combined_output.pdf"
-    output_file_path = os.path.abspath(output_file_name)
+    output_file_path = Path(dir_path, output_file_name)
     output_pdf.save(output_file_path)
     output_pdf.close()
 
@@ -731,7 +798,8 @@ def combine_pdfs():
     print(f"PDFs have been successfully combined. The combined file is saved at:\n{output_file_path}")
 
 # Call the function to combine PDFs
-combine_pdfs()
+dir_path = Path(r"G:\books\parts")
+combine_pdfs(dir_path)
 
 
 

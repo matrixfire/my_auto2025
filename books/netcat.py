@@ -123,7 +123,7 @@ class NetCat:
             self.send()
 
     def send(self):
-        print(f"Connecting to {self.args.target}:{self.args.port}...")
+        # print(f"Connecting to {self.args.target}:{self.args.port}...")
         self.socket.connect((self.args.target, self.args.port))
         print("Connected!")        
         if self.buffer:
@@ -142,9 +142,9 @@ class NetCat:
 
                 if response:
                     print(response)
-                buffer = input('> ')
-                buffer += '\n'
-                self.socket.send(buffer.encode())
+                    buffer = input('> ')
+                    buffer += '\n'
+                    self.socket.send(buffer.encode())
         except KeyboardInterrupt:
             print('User terminated.')
             self.socket.close()

@@ -193,8 +193,8 @@ def overlay_narration_with_music(music_path, narrations, output_file):
             
             # Generate the narration audio
             narration_file = "narration.wav"
-            # create_narration(text, narration_file)
-            create_narration_ai(text, narration_file)
+            create_narration(text, narration_file)
+            # create_narration_ai(text, narration_file)
             narration_audio = AudioSegment.from_wav(narration_file)
             
             # Overlay the narration onto the reduced-volume music
@@ -221,8 +221,9 @@ def create_custom_mp3(music_path, narrations, output_file="output.mp3"):
 
 
 # Configuration
-total_music_duration = 60  # Total duration in seconds
-units = [1]
+total_music_duration = 1800  # Total duration in seconds
+break_duration = 60
+units = [3, 5, 7,7,5,3]
 total_units = sum(units)
 seconds_per_unit = total_music_duration / total_units
 
@@ -234,9 +235,10 @@ for unit in units:
 
 final_message = "Great workout! You've done an amazing job. See you next time!"
 
-narrations = generate_running_narrations(total_music_duration, break_intervals, 10, final_message)
+narrations = generate_running_narrations(total_music_duration, break_intervals, break_duration, final_message)
 
-music_path = r"C:\Users\recur\Desktop\WORK\Running Mix 2020 - Cropped.mp3"
+print(break_duration)
+music_path = r"C:\Users\recur\Desktop\WORK\Virtual Running Videos For Treadmill With Music  30 Minute Virtual Run.mp3"
 output_path = r"C:\Users\recur\Desktop\WORK\Modified_Music_with_Narrations.mp3"
 
 create_custom_mp3(music_path, narrations, output_file=output_path)

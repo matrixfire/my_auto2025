@@ -1,0 +1,13 @@
+Translate the following English text in triple quotes into Chinese. Follow these rules:  
+
+1. First, split the text into individual sentences, ignoring any extra white spaces.  
+2. Translate each sentence one by one.  
+3. Place the Chinese translation directly below each English sentence.  
+4. Number each pair of sentences (English and Chinese) sequentially, like 1, 2, 3...  
+5. Do not provide a final full translation.  
+
+Start translating now.  
+
+'''
+{{}}
+'''

@@ -50,14 +50,16 @@ def proxy_handler(client_socket, remote_host, remote_port, receive_first):
 
     if receive_first:
         remote_buffer = receive_from(remote_socket)
-        if remote_buffer:
-            hexdump(remote_buffer)
-            remote_buffer = response_handler(remote_buffer)
-            client_socket.send(remote_buffer)
+        hexdump(remote_buffer)
+
+    remote_buffer = response_handler(remote_buffer)
+    if len(remote_buffer):
+        print("[<==] Sending %d bytes to localhost." % len(remote_buffer))
+        client_socket.send(remote_buffer)
 
     while True:
         local_buffer = receive_from(client_socket)
-        if local_buffer:
+        if len(local_buffer):
             print(f"[==>] Received {len(local_buffer)} bytes from localhost.")
             hexdump(local_buffer)
             local_buffer = request_handler(local_buffer)
@@ -65,7 +67,7 @@ def proxy_handler(client_socket, remote_host, remote_port, receive_first):
             print("[==>] Sent to remote.")
 
         remote_buffer = receive_from(remote_socket)
-        if remote_buffer:
+        if len(remote_buffer):
             print(f"[<==] Received {len(remote_buffer)} bytes from remote.")
             hexdump(remote_buffer)
             remote_buffer = response_handler(remote_buffer)

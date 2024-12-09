@@ -17,19 +17,20 @@ MARKDOWN_TEMPLATE = """
 """
 
 # Setup Directories and Shelve
-def setup_directories():
-    script_dir = os.path.dirname(__file__)
-    data_dir = os.path.join(os.path.dirname(script_dir), 'mcb')
-    os.makedirs(data_dir, exist_ok=True)
-    return data_dir
+def get_script_dir():
+    """Get the directory of the current script."""
+    return os.path.dirname(os.path.abspath(__file__))
 
-def setup_shelve(data_dir):
-    shelve_filename = os.path.join(data_dir, 'mcb')
+def setup_shelve():
+    """Setup the shelve database in the same directory as the script."""
+    script_dir = get_script_dir()
+    shelve_filename = os.path.join(script_dir, 'mcb_shelve')
     return shelve.open(shelve_filename)
 
 # Export and Import Functions
-def export_to_csv(my_shelf, filename, data_dir):
-    filepath = os.path.join(data_dir, filename)
+def export_to_csv(my_shelf, filename):
+    """Export the data stored in shelve to a CSV file."""
+    filepath = os.path.join(get_script_dir(), filename)
     with open(filepath, 'w', newline='') as csvfile:
         fieldnames = ['key', 'value']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -37,33 +38,42 @@ def export_to_csv(my_shelf, filename, data_dir):
         for key in my_shelf.keys():
             writer.writerow({'key': key, 'value': my_shelf[key]})
 
-def import_from_csv(my_shelf, filename, data_dir):
-    filepath = os.path.join(data_dir, filename)
-    with open(filepath, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            my_shelf[row['key']] = row['value']
+def import_from_csv(my_shelf, filename):
+    """Import data from a CSV file into shelve."""
+    filepath = os.path.join(get_script_dir(), filename)
+    try:
+        with open(filepath, newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                my_shelf[row['key']] = row['value']
+    except FileNotFoundError:
+        print(f"File '{filename}' not found. Import failed.")
 
 # Clipboard Operations
 def save_clipboard(my_shelf, keyword, message=None):
+    """Save current clipboard content to shelve under a keyword."""
     value = pyperclip.paste()
     if message:
         value += f"\n***Bill Super Clipboard-{message}***"
     my_shelf[keyword] = value
 
 def append_to_clipboard(my_shelf, keyword):
+    """Append current clipboard content to an existing shelve entry."""
     new_value = pyperclip.paste()
     old_value = my_shelf.get(keyword, '')
     combined_value = f"{old_value}\n\n\n{new_value}"
     my_shelf[keyword] = combined_value
 
 def delete_clipboard(my_shelf, keyword):
+    """Delete a clipboard entry from shelve."""
     if keyword and keyword in my_shelf:
         del my_shelf[keyword]
+        print(f"Deleted keyword '{keyword}' from the shelve.")
     else:
         print("Keyword for deletion not specified or does not exist.")
 
 def list_clipboard(my_shelf, keys_only=False):
+    """List all saved clipboard keys or key-value pairs."""
     if keys_only:
         formatted_keys = "\n".join(
             f"{key}: {my_shelf[key].split('***Bill Super Clipboard-')[-1].rstrip('***')}" if '***Bill Super Clipboard-' in my_shelf[key] else key
@@ -77,10 +87,12 @@ def list_clipboard(my_shelf, keys_only=False):
         print(formatted_list)
 
 def clear_shelve(my_shelf):
+    """Clear all data in shelve."""
     my_shelf.clear()
     print("All data cleared from the shelve.")
 
 def retrieve_clipboard(my_shelf, keyword):
+    """Retrieve content from shelve by keyword."""
     if keyword in my_shelf:
         content = my_shelf[keyword]
         if '{{' in content and '}}' in content:
@@ -89,14 +101,19 @@ def retrieve_clipboard(my_shelf, keyword):
         if "***Bill Super Clipboard-" in content:
             content = content.split("\n***Bill Super Clipboard-")[0]
         pyperclip.copy(content.strip().strip("\""))
+        print(f"Retrieved content for '{keyword}' and copied to clipboard.")
+    else:
+        print(f"Keyword '{keyword}' not found in the shelve.")
 
 def generate_lorem(option):
+    """Generate lorem ipsum text (sentence or paragraph)."""
     if option == 1:
         pyperclip.copy(lorem.sentence().title())
     elif option == 2:
         pyperclip.copy(lorem.paragraph())
 
 def generate_lorem_custom(word_count=None):
+    """Generate a custom lorem ipsum text based on word count."""
     if word_count is None:
         content = lorem.paragraph()
     else:
@@ -110,6 +127,7 @@ def generate_lorem_custom(word_count=None):
     print(f"Generated lorem ipsum text ({len(content.split())} words) copied to clipboard.")
 
 def generate_git_commands(message=None):
+    """Generate git commands for adding, committing, and pushing changes."""
     if not message:
         message = datetime.datetime.now().strftime("%B %d, %Y, %I:%M %p")
     git_commands = f'git add .\ngit commit -m "{message}"\ngit push'
@@ -117,12 +135,14 @@ def generate_git_commands(message=None):
     print(git_commands)
 
 def convert_to_json(my_shelf):
+    """Convert shelve data to a JSON string and copy it to the clipboard."""
     data_dict = {key: my_shelf[key] for key in my_shelf.keys()}
     json_string = json.dumps(data_dict, indent=4)
     pyperclip.copy(json_string)
-    print("JSON string copied to clipboard")
+    print("JSON string copied to clipboard.")
 
 def display_help():
+    """Display help message for the script."""
     help_text = """
     Multi-Clipboard Script Usage:
     -----------------------------
@@ -150,8 +170,7 @@ def display_help():
 
 # Command-line Interface
 def main():
-    data_dir = setup_directories()
-    my_shelf = setup_shelve(data_dir)
+    my_shelf = setup_shelve()
 
     arg_len = len(sys.argv)
     if arg_len >= 2:
@@ -171,10 +190,10 @@ def main():
             list_clipboard(my_shelf, keys_only)
         elif action == '-export':
             filename = sys.argv[2] if arg_len == 3 else 'mydata.csv'
-            export_to_csv(my_shelf, filename, data_dir)
+            export_to_csv(my_shelf, filename)
         elif action == '-import':
             filename = sys.argv[2] if arg_len == 3 else 'mydata.csv'
-            import_from_csv(my_shelf, filename, data_dir)
+            import_from_csv(my_shelf, filename)
         elif action == '-flush':
             clear_shelve(my_shelf)
         elif action == '-help':
@@ -185,7 +204,7 @@ def main():
             generate_lorem(2)
         elif action == '-lm' and arg_len >= 3:
             num = int(sys.argv[2])
-            generate_lorem_custom(num)            
+            generate_lorem_custom(num)
         elif action == '-git':
             message = sys.argv[2].strip('"') if arg_len == 3 else None
             generate_git_commands(message)

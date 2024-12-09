@@ -237,7 +237,7 @@ final_message = "Great workout! You've done an amazing job. See you next time!"
 
 narrations = generate_running_narrations(total_music_duration, break_intervals, break_duration, final_message)
 
-print(break_duration)
+print(narrations)
 music_path = r"C:\Users\recur\Desktop\WORK\Virtual Running Videos For Treadmill With Music  30 Minute Virtual Run.mp3"
 output_path = r"C:\Users\recur\Desktop\WORK\Modified_Music_with_Narrations.mp3"
 

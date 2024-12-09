@@ -116,7 +116,7 @@ class NetCat:
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # Ensures the socket can be reused immediately after being closed.
 
     def run(self):
-        print(f"Running with target: {self.args.target}, port: {self.args.port}, listen mode: {self.args.listen}")
+        # print(f"Running with target: {self.args.target}, port: {self.args.port}, listen mode: {self.args.listen}")
         if self.args.listen:
             self.listen()
         else:
@@ -125,7 +125,7 @@ class NetCat:
     def send(self):
         # print(f"Connecting to {self.args.target}:{self.args.port}...")
         self.socket.connect((self.args.target, self.args.port))
-        print("Connected!")        
+        # print("Connected!")        
         if self.buffer:
             self.socket.send(self.buffer)
 
@@ -196,7 +196,7 @@ class NetCat:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        description='BHP Net Tool',
+        description='My Net Tool',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent('''Example:
             netcat.py -t 192.168.1.108 -p 5555 -l -c # command shell

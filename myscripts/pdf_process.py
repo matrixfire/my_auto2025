@@ -412,7 +412,7 @@ def interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename
 # Helper function to write a label on a PDF page with a specified color
 def write_page_label(page, label, color):
     # Define text position and appearance
-    text_position = (30, 105)  # Coordinates near the top-left corner
+    text_position = (30, 34)  # Coordinates near the top-left corner
     font_size = 10  # Font size for the label
     page.insert_text(text_position, label, fontsize=font_size, color=color)
 
@@ -421,19 +421,20 @@ def write_page_label(page, label, color):
 
 # Define the list of PDFs with paths, labels, and group sizes
 pdf_specs = [
-    (r"G:\books\probability and statistics(5-251).pdf", "", 2),
-    (r"G:\books\c++.pdf", "", 2),
+    (r"C:\Users\Administrator\Downloads\math.pdf", "", 2),
+    (r"C:\Users\Administrator\Downloads\math2.pdf", "", 2),
+    (r"C:\Users\Administrator\Downloads\quantum mechanics.pdf", "", 2),
     
-    (r"G:\books\parts\interleaved_output_with_circles.pdf", "", 2),
-    (r"G:\books\parts\8grokking algorithms 2nd Edition.pdf", "", 2),
+    (r"C:\Users\Administrator\Downloads\python_ai.pdf", "", 3),
+    # (r"G:\books\1210t\Z-Math for Deep Learning What You Need to Know to Understand Neural Networks.pdf", "", 2),
 
 
 
 ]
 
 
-output_folder=r"G:\books\parts"
-output_filename = "interleaved_output_with_labels.pdf"
+output_folder=r"C:\Users\Administrator\Downloads"
+output_filename = "z2_1211.pdf"
 
 interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename)
 
@@ -449,8 +450,8 @@ from datetime import datetime, timedelta
 import pyperclip
 
 # Constants for total pages
-ORIGINAL_PAGES = 1176  # Original book pages
-DAYS_LEARN = 365  # Total days for learning
+ORIGINAL_PAGES = 1631  # Original book pages
+DAYS_LEARN = 30  # Total days for learning
 review_intervals = [0, 1, 2, 4, 8, 16, 32, 64, 128]
 
 ADDITIONAL_PAGES = 0  # Additional content
@@ -571,7 +572,7 @@ def create_pdf_from_clipboard(output_pdf_path):
     print(f"PDF created successfully: {output_pdf_path}")
 
 
-output_folder = r"G:\books\parts"
+output_folder = r"G:\books\1210t"
 # Example usage:
 output_filename = 'plans.pdf'
 output_file_path = os.path.join(output_folder, output_filename)
@@ -634,15 +635,15 @@ import fitz  # PyMuPDF
 
 
 # Input and output file paths
-input_pdf_path = r"G:\books\parts\resized_output2025.pdf"
-output_pdf_path = r"G:\books\parts\resized_output2025_.pdf"
+input_pdf_path = r"G:\books\1210t\interleaved_output_with_labels.pdf"
+output_pdf_path = r"G:\books\1210t\interleaved_output_with_labels_.pdf"
 
 
 
 # Constants
-ORIGINAL_PAGES = 1176  # Original book pages
+ORIGINAL_PAGES = 1631  # Original book pages
 ADDITIONAL_PAGES = 0  # Additional content is zero
-DAYS_LEARN = 365  # Total days for learning
+DAYS_LEARN = 30  # Total days for learning
 
 # Calculate total pages and pages per day
 total_pages = ORIGINAL_PAGES + ADDITIONAL_PAGES
@@ -739,10 +740,10 @@ def combine_pdfs(pdf_paths, output_folder, output_filename):
 
 # Example usage
 pdf_paths = [
-    r"G:\books\parts\plans.pdf",
-    r"G:\books\parts\resized_output2025_.pdf",
+    r"G:\books\1210t\plans.pdf",
+    r"G:\books\1210t\interleaved_output_with_labels_.pdf",
 ]
-output_folder = r"G:\books\output"
+output_folder = r"G:\books\1210t"
 output_filename = "combined_output.pdf"
 
 # Call the function to combine PDFs
@@ -798,7 +799,7 @@ def combine_pdfs(dir_path):
     print(f"PDFs have been successfully combined. The combined file is saved at:\n{output_file_path}")
 
 # Call the function to combine PDFs
-dir_path = Path(r"G:\books\parts")
+dir_path = Path(r"G:\books\1210t")
 combine_pdfs(dir_path)
 
 

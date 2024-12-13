@@ -169,9 +169,6 @@ def move_file_and_generate_path():
     else:
         print("No product ID found in the filename.")
 
-# Run the function
-move_file_and_generate_path()
-
 
 
 
@@ -216,3 +213,29 @@ def main(folder_path=''):
     result = remove_empty_lines(all_text)
     p.copy(result)
     print(result)
+
+
+move_file_and_generate_path()；main()
+
+'''
+SOME prompts:
+
+We are a company in China with brand name Reobrix, which is a leading building block manufacturer based in China, specializing in high-quality, LEGO-like bricks. Our innovative building sets are designed to inspire creativity and provide a unique building experience for enthusiasts of all ages. With a diverse range of product collections, including Block Gun Collection, Submarine Series, Military Aircraft Collection, Cars Collection, Power Engineering Series, and many more, we cater to a wide array of interests and hobbies.
+
+At Reobrix, we are dedicated to the construction and development of brand culture, creativity, and high standards of quality. Our products are sold in over 150 countries through various channels such as e-commerce, shopping malls, supermarkets, and specialty stores. We take pride in our detailed and realistic models, each crafted with precision and care, ensuring an engaging and rewarding assembly experience.
+
+Our latest offerings include highly detailed models like the Reobrix Cathedral of Notre Dame, UCS-Style Star Shuttle, and the Scorpion Submachine Gun, among others. These models not only provide an immersive building experience but also serve as magnificent display pieces.
+
+Our website url is https://reobrix.com/;  And my email is info@reobrix.com and bill@reobrix.com.
+
+We have plans to collaborate with influencers by providing free samples for them to create and share videos and pictures, helping to showcase our products to a broader audience. Our commitment to quality and innovation has earned us a loyal customer base and long-term partnerships with well-known brands. And we are also looking for moc designers to contribute theirs works for us, and we can pay and buy from them.
+
+
+Below I will keep providing words introduction for our models, I will write made youtube video and instagram posts for it,based on it, you should make me ：
+
+1, youtube video description and its title
+2, instagram post 
+
+Be sure to include our brand name "Reobrix" to enhance seo, and adding our emails in it.
+
+'''

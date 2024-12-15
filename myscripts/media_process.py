@@ -1024,3 +1024,214 @@ handler.slice_video(video2, start_time=0, end_time=1710, output_path=sliced_vide
 output_interleaved = r"G:\temp\interleaved_video.mp4"
 interval_seconds = 10 * 60  # 10-minute intervals
 handler.interleave_videos(sliced_video1, sliced_video2, interval_seconds, output_interleaved)
+
+
+
+
+
+
+
+
+
+
+import os
+import math
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from tqdm import tqdm
+
+class VideoProcessor:
+    def __init__(self, video_path):
+        """Initialize the VideoProcessor object with a video file path."""
+        if not os.path.exists(video_path):
+            raise FileNotFoundError(f"The file {video_path} does not exist.")
+        
+        self.video_path = video_path
+        self.video_name = os.path.splitext(os.path.basename(video_path))[0]
+        self.video_dir = os.path.dirname(video_path)
+
+    def split_video(self, snippet_duration):
+        """Split the video into snippets of the specified duration.
+
+        Args:
+            snippet_duration (int): Duration of each snippet in seconds.
+
+        Returns:
+            list: List of file paths for the generated video snippets.
+        """
+        if snippet_duration <= 0:
+            raise ValueError("Snippet duration must be greater than 0.")
+
+        with VideoFileClip(self.video_path) as video:
+            total_duration = math.ceil(video.duration)  # Total duration in seconds
+
+            snippet_paths = []
+            total_snippets = math.ceil(total_duration / snippet_duration)
+
+            print("Splitting video...")
+            for i, start_time in enumerate(
+                tqdm(range(0, total_duration, snippet_duration), desc="Processing", unit="snippet")
+            ):
+                end_time = min(start_time + snippet_duration, total_duration)
+                
+                # Check if the snippet range is valid
+                if start_time >= total_duration:
+                    break
+
+                snippet_filename = f"{self.video_name}_part_{i + 1}.mp4"
+                snippet_path = os.path.join(self.video_dir, snippet_filename)
+
+                # Prevent overwriting
+                if os.path.exists(snippet_path):
+                    print(f"Skipping existing file: {snippet_path}")
+                    snippet_paths.append(snippet_path)
+                    continue
+
+                try:
+                    snippet = video.subclip(start_time, end_time)
+                    snippet.write_videofile(
+                        snippet_path, codec="libx264", audio_codec="aac", logger="bar"
+                    )
+                    snippet_paths.append(snippet_path)
+                except Exception as e:
+                    print(f"Error processing snippet {i + 1}: {e}")
+                    continue
+
+            print(f"Successfully split video into {total_snippets} snippets.")
+
+        return snippet_paths
+
+
+# Example usage:
+if __name__ == "__main__":
+    video_a_path = r"C:\Users\recur\dwhelper\linear_al.mp4"
+
+    snippet_duration = 300  # 5 minutes
+
+    video_a_processor = VideoProcessor(video_a_path)
+
+    try:
+        video_a_snippets = video_a_processor.split_video(snippet_duration)
+        print("Video A snippets:", video_a_snippets)
+    except Exception as e:
+        print(f"Error occurred: {e}")
+
+
+
+
+
+
+
+import os
+import math
+from moviepy.editor import VideoFileClip
+from tqdm import tqdm
+
+class VideoProcessor:
+    def __init__(self, video_path):
+        """Initialize the VideoProcessor with the given video file path.
+
+        Args:
+            video_path (str): Path to the video file to process.
+        """
+        if not os.path.isfile(video_path):
+            raise FileNotFoundError(f"Video file not found: {video_path}")
+
+        self.video_path = video_path
+        self.video_dir, self.video_name = os.path.split(video_path)
+        self.video_name, _ = os.path.splitext(self.video_name)  # Remove file extension
+
+    def split_video(self, snippet_duration):
+        """Split the video into snippets of the specified duration.
+
+        Args:
+            snippet_duration (int): Duration of each snippet in seconds.
+
+        Returns:
+            list: List of file paths for the generated video snippets.
+        """
+        if snippet_duration <= 0:
+            raise ValueError("Snippet duration must be greater than 0.")
+
+        with VideoFileClip(self.video_path) as video:
+            total_duration = math.floor(video.duration)  # Use floor to avoid exceeding
+            snippet_paths = []
+
+            print("Splitting video...")
+            for i, start_time in enumerate(tqdm(range(0, total_duration, snippet_duration), desc="Processing", unit="snippet")):
+                # Calculate the end time for the current snippet
+                end_time = min(start_time + snippet_duration, total_duration)  # Ensure we do not exceed total duration
+
+                snippet_filename = f"{self.video_name}_part_{i + 1}.mp4"
+                snippet_path = os.path.join(self.video_dir, snippet_filename)
+
+                # Create the subclip and write to file
+                snippet = video.subclip(start_time, end_time)
+                snippet.write_videofile(snippet_path, codec="libx264", audio_codec="aac", logger=None)
+                snippet_paths.append(snippet_path)
+
+            print(f"Successfully split video into {len(snippet_paths)} snippets.")
+        return snippet_paths
+
+# Example usage
+if __name__ == "__main__":
+    video_path = r"C:\Users\recur\dwhelper\linear_al_part_1.mp4" # Replace with your video file path
+    snippet_duration = 53  # Duration of each snippet in seconds
+
+    try:
+        processor = VideoProcessor(video_path)
+        snippets = processor.split_video(snippet_duration)
+
+        print("Generated snippets:")
+        for snippet in snippets:
+            print(snippet)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+
+from moviepy.editor import VideoFileClip, concatenate_videoclips
+from pathlib import Path
+
+# Paths to video files
+video_files = [
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_1.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_1.mp4",
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_2.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_2.mp4",
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_3.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_3.mp4",
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_4.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_4.mp4",
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_5.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_5.mp4",
+    "C:\\Users\\recur\\dwhelper\\ai_1_part_6.mp4",
+    "C:\\Users\\recur\\dwhelper\\linear_al_part_6.mp4",
+]
+
+output_file = "C:\\Users\\recur\\dwhelper\\concatenated_video.mp4"
+
+# Check if all files exist
+for video in video_files:
+    if not Path(video).exists():
+        raise FileNotFoundError(f"File not found: {video}")
+
+# Load video clips
+clips = []
+for video in video_files:
+    print(f"Loading video: {video}")
+    clip = VideoFileClip(video)
+    clips.append(clip)
+
+# Concatenate video clips
+print("Concatenating videos...")
+final_clip = concatenate_videoclips(clips, method="compose")
+
+# Write the final video
+print("Saving the concatenated video...")
+final_clip.write_videofile(output_file, codec="libx264", audio_codec="aac", fps=30, preset="ultrafast")
+
+# Close all clips
+for clip in clips:
+    clip.close()
+
+print(f"Concatenated video saved as: {output_file}")

@@ -868,165 +868,35 @@ handler.concatenate_videos(video_list, output_file)
 
 
 
-from moviepy.editor import VideoFileClip, concatenate_videoclips
-import os
 
-class VideoHandler:
-    def concatenate_videos(self, video_paths, output_path):
-        """
-        Concatenates multiple video files into one.
-        """
-        try:
-            clips = [VideoFileClip(path) for path in video_paths]
-            final_clip = concatenate_videoclips(clips, method="compose")
-            final_clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
-            print(f"Concatenated video saved to {output_path}")
-        except Exception as e:
-            print(f"Error while concatenating videos: {e}")
-        finally:
-            for clip in clips:
-                clip.close()
 
-    def interleave_videos(self, video_path1, video_path2, interval, output_path):
-        """
-        Interleaves two videos in intervals and combines them into one output video.
 
-        :param video_path1: Path to the first video.
-        :param video_path2: Path to the second video.
-        :param interval: Duration of each interval in seconds.
-        :param output_path: Path to save the interleaved video.
-        """
-        try:
-            # Load the video clips
-            clip1 = VideoFileClip(video_path1)
-            clip2 = VideoFileClip(video_path2)
 
-            # Initialize variables
-            duration1 = clip1.duration
-            duration2 = clip2.duration
-            clips = []
-            time1, time2 = 0, 0
 
-            # Interleave the videos
-            while time1 < duration1 or time2 < duration2:
-                if time1 < duration1:
-                    start = time1
-                    end = min(time1 + interval, duration1)
-                    clips.append(clip1.subclip(start, end))
-                    time1 += interval
 
-                if time2 < duration2:
-                    start = time2
-                    end = min(time2 + interval, duration2)
-                    clips.append(clip2.subclip(start, end))
-                    time2 += interval
 
-            # Concatenate all the interleaved clips
-            final_clip = concatenate_videoclips(clips, method="compose")
-            final_clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
-            print(f"Interleaved video saved to {output_path}")
-        except Exception as e:
-            print(f"Error while interleaving videos: {e}")
-        finally:
-            clip1.close()
-            clip2.close()
-            for clip in clips:
-                clip.close()
+
+
+
+def interleave_lists(*lists):
+    """
+    Interleaves multiple lists, handling varying lengths.
+    :param lists: Multiple lists to interleave
+    :return: A single list with interleaved elements
+    """
+    interleaved = []
+    max_length = max(len(lst) for lst in lists)
+    for i in range(max_length):
+        for lst in lists:
+            if i < len(lst):
+                interleaved.append(lst[i])
+    return interleaved
 
 # Example usage
-if __name__ == "__main__":
-    handler = VideoHandler()
-
-    video1 = r"G:\temp\Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020.mp4"
-    video2 = r"G:\temp\concatenated_video.mp4"
-    output_video = r"G:\temp\interleaved_video.mp4"
-    interval_seconds = 10 * 60  # 10 minutes
-
-    handler.interleave_videos(video1, video2, interval_seconds, output_video)
-
-
-
-
-from moviepy.editor import VideoFileClip, concatenate_videoclips
-
-class VideoHandler:
-    def slice_video(self, video_path, start_time, end_time, output_path):
-        """
-        Slices a video between start_time and end_time.
-        
-        :param video_path: Path to the input video.
-        :param start_time: Start time of the slice in seconds.
-        :param end_time: End time of the slice in seconds.
-        :param output_path: Path to save the sliced video.
-        """
-        try:
-            clip = VideoFileClip(video_path)
-            sliced_clip = clip.subclip(start_time, end_time)
-            sliced_clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
-            print(f"Sliced video saved to {output_path}")
-        except Exception as e:
-            print(f"Error while slicing video: {e}")
-        finally:
-            clip.close()
-
-    def interleave_videos(self, video_path1, video_path2, interval, output_path):
-        """
-        Interleaves two videos in intervals and combines them into one output video.
-
-        :param video_path1: Path to the first video.
-        :param video_path2: Path to the second video.
-        :param interval: Duration of each interval in seconds.
-        :param output_path: Path to save the interleaved video.
-        """
-        try:
-            clip1 = VideoFileClip(video_path1)
-            clip2 = VideoFileClip(video_path2)
-            duration1, duration2 = clip1.duration, clip2.duration
-            clips, time1, time2 = [], 0, 0
-
-            while time1 < duration1 or time2 < duration2:
-                if time1 < duration1:
-                    start, end = time1, min(time1 + interval, duration1)
-                    clips.append(clip1.subclip(start, end))
-                    time1 += interval
-                if time2 < duration2:
-                    start, end = time2, min(time2 + interval, duration2)
-                    clips.append(clip2.subclip(start, end))
-                    time2 += interval
-
-            final_clip = concatenate_videoclips(clips, method="compose")
-            final_clip.write_videofile(output_path, codec="libx264", audio_codec="aac")
-            print(f"Interleaved video saved to {output_path}")
-        except Exception as e:
-            print(f"Error while interleaving videos: {e}")
-        finally:
-            clip1.close()
-            clip2.close()
-            for clip in clips:
-                clip.close()
-
-# Instantiate the VideoHandler
-handler = VideoHandler()
-
-# Slicing the videos
-video1 = r"G:\temp\concatenated_video.mp4"
-video2 = r"G:\temp\Search - Lecture 0 - CS50's Introduction to Artificial Intelligence with Python 2020.mp4"
-sliced_video1 = r"G:\temp\sliced_video1.mp4"
-sliced_video2 = r"G:\temp\sliced_video2.mp4"
-
-# Slice video1 from beginning to 36:48 (2208 seconds)
-handler.slice_video(video1, start_time=0, end_time=2208, output_path=sliced_video1)
-
-# Slice video2 from beginning to 28:30 (1710 seconds)
-handler.slice_video(video2, start_time=0, end_time=1710, output_path=sliced_video2)
-
-# Interleave the sliced videos
-output_interleaved = r"G:\temp\interleaved_video.mp4"
-interval_seconds = 10 * 60  # 10-minute intervals
-handler.interleave_videos(sliced_video1, sliced_video2, interval_seconds, output_interleaved)
-
-
-
+lt1 = ['a', 'b', 'c']
+lt2 = [1, 2, 3, 4]
+result = interleave_lists(lt1, lt2)
+print(result)  # Output: ['a', 1, 'b', 2, 'c', 3, 4]
 
 
 
@@ -1103,7 +973,7 @@ class VideoProcessor:
 
 # Example usage:
 if __name__ == "__main__":
-    video_a_path = r"C:\Users\recur\dwhelper\linear_al.mp4"
+    video_a_path = r"C:\Users\recur\Desktop\temp\Data analysis and visualization in Python_ Python Crash Course - Episode 15.mp4"
 
     snippet_duration = 300  # 5 minutes
 
@@ -1120,72 +990,6 @@ if __name__ == "__main__":
 
 
 
-
-import os
-import math
-from moviepy.editor import VideoFileClip
-from tqdm import tqdm
-
-class VideoProcessor:
-    def __init__(self, video_path):
-        """Initialize the VideoProcessor with the given video file path.
-
-        Args:
-            video_path (str): Path to the video file to process.
-        """
-        if not os.path.isfile(video_path):
-            raise FileNotFoundError(f"Video file not found: {video_path}")
-
-        self.video_path = video_path
-        self.video_dir, self.video_name = os.path.split(video_path)
-        self.video_name, _ = os.path.splitext(self.video_name)  # Remove file extension
-
-    def split_video(self, snippet_duration):
-        """Split the video into snippets of the specified duration.
-
-        Args:
-            snippet_duration (int): Duration of each snippet in seconds.
-
-        Returns:
-            list: List of file paths for the generated video snippets.
-        """
-        if snippet_duration <= 0:
-            raise ValueError("Snippet duration must be greater than 0.")
-
-        with VideoFileClip(self.video_path) as video:
-            total_duration = math.floor(video.duration)  # Use floor to avoid exceeding
-            snippet_paths = []
-
-            print("Splitting video...")
-            for i, start_time in enumerate(tqdm(range(0, total_duration, snippet_duration), desc="Processing", unit="snippet")):
-                # Calculate the end time for the current snippet
-                end_time = min(start_time + snippet_duration, total_duration)  # Ensure we do not exceed total duration
-
-                snippet_filename = f"{self.video_name}_part_{i + 1}.mp4"
-                snippet_path = os.path.join(self.video_dir, snippet_filename)
-
-                # Create the subclip and write to file
-                snippet = video.subclip(start_time, end_time)
-                snippet.write_videofile(snippet_path, codec="libx264", audio_codec="aac", logger=None)
-                snippet_paths.append(snippet_path)
-
-            print(f"Successfully split video into {len(snippet_paths)} snippets.")
-        return snippet_paths
-
-# Example usage
-if __name__ == "__main__":
-    video_path = r"C:\Users\recur\dwhelper\linear_al_part_1.mp4" # Replace with your video file path
-    snippet_duration = 53  # Duration of each snippet in seconds
-
-    try:
-        processor = VideoProcessor(video_path)
-        snippets = processor.split_video(snippet_duration)
-
-        print("Generated snippets:")
-        for snippet in snippets:
-            print(snippet)
-    except Exception as e:
-        print(f"An error occurred: {e}")
 
 
 
@@ -1208,7 +1012,7 @@ video_files = [
     "C:\\Users\\recur\\dwhelper\\linear_al_part_6.mp4",
 ]
 
-output_file = "C:\\Users\\recur\\dwhelper\\concatenated_video.mp4"
+output_file = "C:\\Users\\recur\\dwhelper\\concatenated_video3.mp4"
 
 # Check if all files exist
 for video in video_files:

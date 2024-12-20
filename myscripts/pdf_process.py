@@ -947,3 +947,38 @@ if __name__ == "__main__":
 
 
 
+# important , final working version of removing chinese characters from pdf
+
+import fitz  # PyMuPDF
+
+def clean_pdf(input_pdf, output_pdf, remove_text):
+    # Open the PDF file
+    pdf_document = fitz.open(input_pdf)
+
+    # Loop through each page in the PDF
+    for page_num in range(pdf_document.page_count):
+        page = pdf_document.load_page(page_num)
+
+        # Search for the unwanted text and remove it
+        text_instances = page.search_for(remove_text)
+
+        for inst in text_instances:
+            # Remove the found instances of the unwanted text by adding a redaction annotation
+            page.add_redact_annot(inst)
+        page.apply_redactions()  # Apply the redactions
+
+    # Save the cleaned PDF with optimization and no incremental flag
+    pdf_document.save(output_pdf, deflate=True)  # Deflate option for optimization
+
+    print(f"Cleaned PDF saved as: {output_pdf}")
+
+# Input and output PDF paths
+input_pdf = r"C:\Users\recur\Desktop\django5 book.pdf"
+output_pdf = r"C:\Users\recur\Desktop\cleaned_django5_book.pdf"
+
+# Chinese characters to remove
+remove_text = "最新资料最新资料"
+
+# Call the function to clean the PDF
+clean_pdf(input_pdf, output_pdf, remove_text)
+

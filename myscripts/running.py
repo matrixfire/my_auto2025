@@ -2,7 +2,7 @@ from elevenlabs import play
 from elevenlabs.client import ElevenLabs
 from pydub import AudioSegment
 from pydub.playback import play
-import pyttsx3
+import pyttsx3 # audio
 import os
 from collections import defaultdict
 

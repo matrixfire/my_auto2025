@@ -325,7 +325,7 @@ interleave_pdfs_with_grouped_pages()
 ############################ interleaving learning
 
 
-output_folder = r"G:\books\output"
+output_folder = r"G:\temp"
 
 
 # 1, Making the interleaving pdf
@@ -344,7 +344,14 @@ def interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename
     
     for pdf_path, label, group_size in pdf_specs:
         pdf_paths.append(pdf_path)
-        labels.append(label if label else os.path.basename(pdf_path))
+        if label == '_':
+            labels.append(os.path.basename(pdf_path))
+        elif label == '':
+            labels.append('')
+        else:
+            labels.append(label)
+            
+        # labels.append(label if label else os.path.basename(pdf_path))
         pages_per_pdf.append(group_size if group_size else 1)
 
     # Step 2: Open all PDFs
@@ -390,7 +397,7 @@ def interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename
                     new_page.show_pdf_page(common_rect, pdf, original_page_num, transformation)
                     
                     # Add the label with the page indicator and color
-                    label_with_page = f"{label} ({original_page_num + 1})"
+                    label_with_page = f"{label} ({original_page_num + 1})" if label else ""
                     label_color = colors[i % len(colors)]
                     write_page_label(new_page, label_with_page, label_color)
 
@@ -421,11 +428,10 @@ def write_page_label(page, label, color):
 
 # Define the list of PDFs with paths, labels, and group sizes
 pdf_specs = [
-    (r"C:\Users\Administrator\Downloads\math.pdf", "", 2),
-    (r"C:\Users\Administrator\Downloads\math2.pdf", "", 2),
-    (r"C:\Users\Administrator\Downloads\quantum mechanics.pdf", "", 2),
+    (r"G:\books\X_1113_redact(161-596).pdf", "", 3),
+    (r"G:\books\X1_1218.pdf", "_", 1),
     
-    (r"C:\Users\Administrator\Downloads\python_ai.pdf", "", 3),
+    # (r"C:\Users\Administrator\Downloads\python_ai.pdf", "", 3),
     # (r"G:\books\1210t\Z-Math for Deep Learning What You Need to Know to Understand Neural Networks.pdf", "", 2),
 
 
@@ -433,8 +439,8 @@ pdf_specs = [
 ]
 
 
-output_folder=r"C:\Users\Administrator\Downloads"
-output_filename = "z2_1211.pdf"
+output_folder=r"G:\books"
+output_filename = "X_1113_redact(161-596)_2.pdf"
 
 interleave_pdfs_with_grouped_pages(pdf_specs, output_folder, output_filename)
 
@@ -450,8 +456,8 @@ from datetime import datetime, timedelta
 import pyperclip
 
 # Constants for total pages
-ORIGINAL_PAGES = 1631  # Original book pages
-DAYS_LEARN = 30  # Total days for learning
+ORIGINAL_PAGES = 1020  # Original book pages
+DAYS_LEARN = 180  # Total days for learning
 review_intervals = [0, 1, 2, 4, 8, 16, 32, 64, 128]
 
 ADDITIONAL_PAGES = 0  # Additional content
@@ -572,7 +578,7 @@ def create_pdf_from_clipboard(output_pdf_path):
     print(f"PDF created successfully: {output_pdf_path}")
 
 
-output_folder = r"G:\books\1210t"
+output_folder = r"G:\temp"
 # Example usage:
 output_filename = 'plans.pdf'
 output_file_path = os.path.join(output_folder, output_filename)
@@ -617,9 +623,9 @@ def resize_pdf_to_match(input_pdf, reference_pdf, output_pdf):
     print(f"PDF resized successfully and saved to: {output_pdf}")
 
 # Example usage
-input_pdf = r"G:\books\parts\interleaved_output_with_labels_compressed.pdf"
-reference_pdf = r"G:\books\parts\plans.pdf"
-output_pdf = r"G:\books\parts\resized_output2025.pdf"
+input_pdf = r"G:\temp\X2_1218.pdf"
+reference_pdf = r"G:\temp\plans.pdf"
+output_pdf = r"G:\temp\X2_1218__.pdf"
 
 resize_pdf_to_match(input_pdf, reference_pdf, output_pdf)
 
@@ -635,15 +641,15 @@ import fitz  # PyMuPDF
 
 
 # Input and output file paths
-input_pdf_path = r"G:\books\1210t\interleaved_output_with_labels.pdf"
-output_pdf_path = r"G:\books\1210t\interleaved_output_with_labels_.pdf"
+input_pdf_path = r"G:\temp\X2_1218__.pdf"
+output_pdf_path = r"G:\temp\X2_1218_2.pdf"
 
 
 
 # Constants
-ORIGINAL_PAGES = 1631  # Original book pages
+ORIGINAL_PAGES = 1020  # Original book pages
 ADDITIONAL_PAGES = 0  # Additional content is zero
-DAYS_LEARN = 30  # Total days for learning
+DAYS_LEARN = 180  # Total days for learning
 
 # Calculate total pages and pages per day
 total_pages = ORIGINAL_PAGES + ADDITIONAL_PAGES
@@ -740,11 +746,11 @@ def combine_pdfs(pdf_paths, output_folder, output_filename):
 
 # Example usage
 pdf_paths = [
-    r"G:\books\1210t\plans.pdf",
-    r"G:\books\1210t\interleaved_output_with_labels_.pdf",
+    r"G:\books\X_1113_redact(1-160).pdf",
+    r"G:\books\X_1113_redact(161-596)_2.pdf",
 ]
-output_folder = r"G:\books\1210t"
-output_filename = "combined_output.pdf"
+output_folder = r"G:\books"
+output_filename = "X_1113_v2"
 
 # Call the function to combine PDFs
 combine_pdfs(pdf_paths, output_folder, output_filename)

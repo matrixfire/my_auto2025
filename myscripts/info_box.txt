@@ -1,0 +1,61 @@
+good, for your latest html body code:
+    <header>
+        <h1>成语接龙</h1>
+        <p>输入一个成语，看看接龙成语吧！</p>
+    </header>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="idiom" placeholder="请输入一个成语，例如：一马当先" required>
+            <button type="submit">提交</button>
+        </form>
+
+        <!-- Error Message -->
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <!-- Display Input Idiom -->
+        {% if input_idiom %}
+        <div class="results">
+            <h2>输入成语: <strong>{{ input_idiom }}</strong></h2>
+            {% if next_idioms %}
+            <h3>接龙成语:</h3>
+            <ul>
+                {% for idiom in next_idioms %}
+                <li>{{ idiom.text }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>没有找到匹配的接龙成语。</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+ based on above code, I want to rebuild this idiom_game.html django template web page , making the next idiom accordions. I don't know how to code, so I need you to provide the code for me. 
+  
+First, aide from previews detailes, also write this django template HTML codethat includes the following:
+
+
+First, write the HTML code for a web page that includes the following:
+ * A header element that includes an image named logo.png, the title "成语接龙", and the tagline "玩玩成语接龙~" 
+ * A main section where each entry is an accordion using the HTML summary and details elements.
+ * For each entry, the summary text is the idiom text and the details include the smaller idiom text again, followed by the idiom meaning.
+ * Please provide four sample entries going back four days from today.
+ * A footer element that includes the Copyright symbol, followed by the current year, followed by "Bill Zou&Vicky Feng".
+ * In the page head section, include the tag <meta charset="utf-8">.
+
+Second, in a separate file write the CSS code for the following:
+ * The page background color is mintcream.
+ * The page text color is slategray.
+ * Make the image a maximum width of 150px and floated to the left.
+ * The title font size is 48px.
+ * The tagline font size is 22px and formatted as italic.
+ * The idiom text font size is 30px.
+ * The main section font size is 20px with a top margin of 48px.
+ * Make the smaller idiom text dark blue with font size 18px.
+ * For the headings and summary text, use the Lato font from Google Fonts. For the rest of the text, use the Merriweather font from Google Fonts.
+ * The footer has 5px padding all around and a 10px top margin.
+ * Make the page responsive with a maximum width of 850px.
+ * Style the accordions to make them look nicer, including a powderblue background color.

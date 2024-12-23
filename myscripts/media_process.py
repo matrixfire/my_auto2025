@@ -973,7 +973,7 @@ class VideoProcessor:
 
 # Example usage:
 if __name__ == "__main__":
-    video_a_path = r"C:\Users\recur\Desktop\temp\Data analysis and visualization in Python_ Python Crash Course - Episode 15.mp4"
+    video_a_path = r"C:\Users\recur\dwhelper\linear_al2.mp4"
 
     snippet_duration = 300  # 5 minutes
 
@@ -1039,3 +1039,101 @@ for clip in clips:
     clip.close()
 
 print(f"Concatenated video saved as: {output_file}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import pyttsx3
+import pyperclip
+
+def save_clipboard_to_audio(file_name="output.mp3", language="zh", rate_increase=50):
+    # Initialize the pyttsx3 engine
+    engine = pyttsx3.init()
+    
+    # Get text from clipboard
+    clipboard_text = pyperclip.paste()
+    
+    if not clipboard_text.strip():
+        print("Clipboard is empty. Please copy some text first.")
+        return
+    
+    # Set properties for the voice engine
+    voices = engine.getProperty('voices')
+    chinese_voice = None
+
+    # Find a Chinese-compatible voice
+    for voice in voices:
+        if voice.languages and language in voice.languages[0].decode("utf-8"):
+            chinese_voice = voice
+            break
+
+    if chinese_voice:
+        engine.setProperty('voice', chinese_voice.id)
+    else:
+        print("No Chinese-compatible voice found. Using default voice.")
+    
+    # Increase the voice speed (rate)
+    current_rate = engine.getProperty('rate')  # Default speed
+    engine.setProperty('rate', current_rate + rate_increase)  # Faster speed
+    
+    # Save audio to file
+    engine.save_to_file(clipboard_text, file_name)
+    engine.runAndWait()
+    
+    print(f"Audio saved to {file_name} with faster voice speed.")
+
+if __name__ == "__main__":
+    # Save audio with a faster speed (increase rate by 50)
+    save_clipboard_to_audio(rate_increase=100)  # Change the number for different speeds
+
+
+
+from gtts import gTTS
+from pydub import AudioSegment
+from pydub.playback import play
+import pyperclip
+
+def save_clipboard_to_audio(file_name="output.mp3", language="zh", speed_factor=1.5):
+    # Get text from clipboard
+    clipboard_text = pyperclip.paste()
+    
+    if not clipboard_text.strip():
+        print("Clipboard is empty. Please copy some text first.")
+        return
+    
+    # Convert text to audio and save as MP3
+    tts = gTTS(text=clipboard_text, lang=language)
+    tts.save(file_name)
+    print(f"Audio saved to {file_name}. Now adjusting speed...")
+
+    # Adjust playback speed using pydub
+    audio = AudioSegment.from_file(file_name)
+    faster_audio = audio._spawn(audio.raw_data, overrides={
+        "frame_rate": int(audio.frame_rate * speed_factor)
+    }).set_frame_rate(audio.frame_rate)
+    
+    # Save the modified audio
+    faster_file_name = f"faster_{file_name}"
+    faster_audio.export(faster_file_name, format="mp3")
+    print(f"Faster audio saved to {faster_file_name}")
+
+if __name__ == "__main__":
+    # Save audio with faster speed (1.5x)
+    save_clipboard_to_audio(speed_factor=2.0)
+
+
+
+
+
+
+

@@ -215,7 +215,7 @@ def main(folder_path=''):
     print(result)
 
 
-move_file_and_generate_path()；main()
+move_file_and_generate_path();main()
 
 '''
 SOME prompts:
